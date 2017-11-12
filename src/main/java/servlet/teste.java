@@ -44,16 +44,10 @@ public class HelloServlet extends HttpServlet {
          stmt = c.createStatement();
          ResultSet rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
          while ( rs.next() ) {
-            int id = rs.getInt("id");
-            String  name = rs.getString("name");
-            int age  = rs.getInt("age");
-            String  address = rs.getString("address");
-            float salary = rs.getFloat("salary");
-            out.write( "ID = " + id + "</br>" );
-            out.write( "NAME = " + name + "</br>" );
-            out.write( "AGE = " + age + "</br>" );
-            out.write( "ADDRESS = " + address+ "</br>"  );
-            out.write( "SALARY = " + salary + "</br>" );
+            String user = rs.getString("username");
+            String  pass = rs.getString("senha");
+            out.write( "User = " + user + "</br>" );
+            out.write( "Senha = " + senha + "</br>" );
             out.write();
          }
          rs.close();
