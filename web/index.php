@@ -1,25 +1,20 @@
-<?php
+<html>
+<title>Teste php</title>
+<head></head>
+<body>
+<?
+$servidor = 'ec2-184-73-206-155.compute-1.amazonaws.com:5432';
+$banco = 'dcddreidjnggtn';
+$usuario = 'agvlrlhnpncwkh';
+$senha = '548d6de5795bf901f45d996069017c9002b8374deada3c37331b2ab74bea0e56';
+$link = mysql_connect($servidor, $usuario, $senha);
 
-require('../vendor/autoload.php');
+$db = mysql_select_db($banco,$link);
+if(!$link)
+{
+    echo "erro ao conectar ao banco de dados!";}
+?>
 
-$app = new Silex\Application();
-$app['debug'] = true;
 
-// Register the monolog logging service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => 'php://stderr',
-));
-
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
-
-// Our web handlers
-
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
-});
-
-$app->run();
+</body>
+</html>
