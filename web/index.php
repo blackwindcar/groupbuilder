@@ -13,6 +13,9 @@ $db = mysql_select_db($banco,$link);
 if(!$link)
 {
     echo "erro ao conectar ao banco de dados!";}
+else{
+	echo "entrou na data base";
+}
 ?>
 
 
