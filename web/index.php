@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
-<title>Teste php</title>
-<head></head>
+
+<head>
+	<title>Teste php</title>
+</head>
 <body>
 ola
 <?php
