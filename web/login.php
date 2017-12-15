@@ -7,13 +7,9 @@ if (!$conn) {
   echo "An error occured.\n";
   exit; // Para a execução do script
 }
-session_start();
-if($SESSION["utilizador"] != "admin" or $$SESSION["password"] != "admin"){
-	header('Location: login.php');
-}
 
 ?>
-<title>Home</title>
+<title>Login</title>
 <head></head>
 <body>
 
