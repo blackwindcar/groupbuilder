@@ -18,23 +18,23 @@ if (!$conn) {
 <head></head>
 <body>
 <form class = "form_login" action="newUser.php" method="post" name="form1" id="form1">
-  <table width="288" border="1">
+  <table class="tabela_form" width="288" border="0">
     <tbody>
       <tr>
-        <td width="278"><label for="user">User:</label></td>
-        <td width="278"><input type="text" name="user" id="user"></td>
+        <td width="278" align="right" valign="middle"><label for="user">User:</label></td>
+        <td width="278" align="left" valign="middle"><input type="text" name="user" id="user"></td>
       </tr>
       <tr>
-        <td><label for="pass">Password:</label></td>
-        <td><input type="text" name="pass" id="pass"></td>
+        <td align="right" valign="middle"><label for="pass">Password:</label></td>
+        <td align="left" valign="middle"><input type="text" name="pass" id="pass"></td>
       </tr>
       <tr>
-        <td><label for="pass"> Repetir password:</label></td>
-		  <td><input type="text" name="pass2" id="pass2"></td>
+        <td align="right" valign="middle"><label for="pass"> Repetir password:</label></td>
+		  <td align="left" valign="middle"><input type="text" name="pass2" id="pass2"></td>
       </tr>
       <tr>
-        <td><input type="submit" name="submit" id="submit" value="Registar"></td>
-		  <td><a href="login.php">login</a></td>
+        <td align="right" valign="middle"><input type="submit" name="submit" id="submit" value="Registar"></td>
+		  <td align="left" valign="middle"><a href="login.php">login</a></td>
       </tr>
     </tbody>
   </table>

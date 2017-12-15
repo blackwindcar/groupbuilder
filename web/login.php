@@ -18,7 +18,7 @@ if (!$conn) {
 <head></head>
 <body>
 <form class = "form_login" action="login_authentication.php" method="post" name="form1" id="form1">
-  <table width="100%" border="1">
+  <table class = "tabela_form" width="100%" border="0">
     <tbody>
       <tr>
         <td width="278" align="right" valign="middle"><label for="user">User:</label></td>
