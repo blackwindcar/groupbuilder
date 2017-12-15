@@ -16,16 +16,11 @@ if (!$conn) {
 <head></head>
 <body>
 <?php
-	print_r($_SESSION);
-	try{
-		echo($_SESSION["utilizador"]);
-		echo($_SESSION["password"]);
+	if($_SESSION["utilizador"]==null){
+		echo("sem user <br>");
 	}
-	catch(Exception $e){
-		pg_close($conn);
-		header("location: login.php");
-	}
-	print_r($_SESSION);
+		echo $_SESSION["utilizador"]."<br>";
+		echo $_SESSION["password"]."<br>";
 	pg_close($conn);
 	?>
 
