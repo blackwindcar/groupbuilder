@@ -11,7 +11,7 @@
 }
 #submit {
 	color: #FFF;
-	border-radius: 5;
+	border-radius: 5px;
 	background-color: #666;
 
 }
@@ -22,5 +22,5 @@ body {
 	background-color: #888;
 }
 td {
-	background-color: 333;
+	background-color: #888;
 }
