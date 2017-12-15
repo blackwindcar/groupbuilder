@@ -10,16 +10,18 @@ if (!$conn) {
 }
 $user = $_POST["user"];
 $pass = $_POST["pass"];
+$sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
+if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
+	pg_close($conn);
+	header('Location: registar.php');
+}
 $sql = "INSERT INTO \"utilizador\"(\"user\", password) VALUES ('$user', '$pass')";
 
-if(pg_query($conn,$sql)){
+pg_query($conn,$sql))
 	pg_close($conn);
 	$_SESSION["utilizador"] = $user;
 	$_SESSION["password"] = $pass;
 	header('Location: index.php');
-}
-pg_close($conn);
-header('Location: registar.php');
 
 
 ?>
