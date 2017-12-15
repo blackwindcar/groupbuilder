@@ -25,7 +25,7 @@ if (!$conn) {
       </tr>
       <tr>
         <td><input type="submit" name="submit" id="submit" value="Login"></td>
-		  <td><a href="registar.php"></a><input type="button" name="button" id="button" value="Registar"></a></td>
+		  <td><a href="registar.php">registar</a></td>
       </tr>
     </tbody>
   </table>

@@ -7,16 +7,22 @@ if (!$conn) {
   echo "An error occured.\n";
   exit; // Para a execução do script
 }
+
 session_start();
 if($SESSION["utilizador"] != "admin" or $$SESSION["password"] != "admin"){
-	header('Location: login.php');
+	//header('Location: login.php');
 }
 
 ?>
 <title>Home</title>
 <head></head>
 <body>
-
+<?php
+	$sql = "CREATE TABLE "user" ("user" varchar(255), password varchar(255));"
+if($conn->query($sql)==true){
+	echo("tabela criada");
+}
+	?>
 
 </body>
 </html>
