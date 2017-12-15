@@ -14,7 +14,7 @@ $sql = "INSERT INTO \"utilizador\"(\"user\", password) VALUES ('$user', '$pass')
 
 if(pg_query($conn,$sql)){
 	pg_close($conn);
-	$SESSION["utilizador"] = $user;
+	$_SESSION["utilizador"] = $user;
 	$_SESSION["password"] = $pass;
 	header('Location: index.php');
 }
