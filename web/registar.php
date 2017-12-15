@@ -17,8 +17,8 @@ if (!$conn) {
 <link href="css/base.css" rel="stylesheet" type="text/css">
 <head></head>
 <body>
-<form class = "form_login" action="newUser.php" method="post" name="form1" id="form1">
-  <table class="tabela_form" width="288" border="0">
+<form class ="form_login" action="newUser.php" method="post" name="form1" id="form1">
+  <table class="tabela_form"  border="0">
     <tbody>
       <tr>
         <td width="278" align="right" valign="middle"><label for="user">User:</label></td>
@@ -34,7 +34,7 @@ if (!$conn) {
       </tr>
       <tr>
         <td align="right" valign="middle"><input type="submit" name="submit" id="submit" value="Registar"></td>
-		  <td align="left" valign="middle"><a href="login.php">login</a></td>
+		  <td align="left" valign="middle"><a href="login.php" style="color: #FFFFFF">login</a></td>
       </tr>
     </tbody>
   </table>
