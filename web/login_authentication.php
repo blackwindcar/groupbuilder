@@ -12,7 +12,7 @@ if (!$conn) {
 $user = $_POST["user"];
 $pass = $_POST["pass"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
-echo(pg_fetch_row(pg_query($conn,$sql))[0]);
+echo(pg_fetch_row(pg_query($conn,$sql))[0]=="1");
 pg_close($conn);
 //header('Location: index.php');
 
