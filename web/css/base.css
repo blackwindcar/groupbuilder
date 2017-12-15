@@ -17,6 +17,8 @@ body {
 	background-color: #4D4D4D;
 }
 .tabela_form {
+	padding-top: 20px;
+	padding-bottom: 20px;
 	background-color: #888;
 	border-radius: 10px;
 }
