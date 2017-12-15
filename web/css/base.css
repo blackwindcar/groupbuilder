@@ -1,3 +1,6 @@
+*{
+	margin: 0px auto;
+}
 .form_login {
 	width: 400px;
 	margin-left: -200px;
@@ -62,4 +65,9 @@ section{
 	height: 150px;
 	background-color: #E1E1E1;
 	text-align: center;
+}
+.user{
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
 }

@@ -32,7 +32,8 @@ pg_close($conn);
     <tbody>
       <tr>
         <td width="60%" height="70"><img id="logo" src="img/logo.png" width="91" height="70" alt=""/></td>
-        <td width="40%">&nbsp;</td>
+        <td width="40%" align="right" valign="middle"><input name="user" type="button" class = "user
+			" id="user" form="index.php" value="." href="index.php"></td>
       </tr>
     </tbody>
   </table>
