@@ -10,12 +10,15 @@ if (!$conn) {
 }
 $user = $_POST["user"];
 $pass = $_POST["pass"];
+$nome = $_POST["nome"];
+$email = $_POST["email"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
+
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	pg_close($conn);
 	header('Location: registar.php');
 }
-$sql = "INSERT INTO \"utilizador\"(\"user\", password) VALUES ('$user', '$pass')";
+$sql = "INSERT INTO \"user\"(\"user\", \"password\", \"email\", \"nome\") VALUES ('$user', '$pass', '$email', '$nome')";
 
 pg_query($conn,$sql);
 pg_close($conn);
