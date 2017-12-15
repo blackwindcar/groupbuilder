@@ -9,8 +9,8 @@ if (!$conn) {
 }
 
 session_start();
-if($SESSION["utilizador"] != "admin" or $$SESSION["password"] != "admin"){
-	//header('Location: login.php');
+if($SESSION["utilizador"] != "admin" or $SESSION["password"] != "admin"){
+	header('Location: login.php');
 }
 
 ?>
@@ -18,10 +18,10 @@ if($SESSION["utilizador"] != "admin" or $$SESSION["password"] != "admin"){
 <head></head>
 <body>
 <?php
-	$sql = "CREATE TABLE "user" ("user" varchar(255), password varchar(255));"
+	/*$sql = "CREATE TABLE "user" ("user" varchar(255), password varchar(255));"
 	if(pg_query($conn, $sql)){
 		echo("tabela criada");
-	}
+	}*/
 	pg_close($conn);
 	?>
 

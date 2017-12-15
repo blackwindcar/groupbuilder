@@ -7,7 +7,7 @@ if (!$conn) {
   echo "An error occured.\n";
   exit; // Para a execução do script
 }
-mysqli_close($conn);
+	pg_close($conn);
 ?>
 <title>Login</title>
 <head></head>
