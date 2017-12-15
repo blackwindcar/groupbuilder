@@ -12,7 +12,7 @@ if (!$conn) {
 <title>Login</title>
 <head></head>
 <body>
-<form action="login_authentication.php" method="post" name="form1" id="form1">
+<form action="newUser.php" method="post" name="form1" id="form1">
   <table width="288" border="1">
     <tbody>
       <tr>
@@ -24,8 +24,12 @@ if (!$conn) {
         <td><input type="text" name="pass" id="pass"></td>
       </tr>
       <tr>
-        <td><input type="submit" name="submit" id="submit" value="Login"></td>
-		  <td><a href="registar.php"></a><input type="button" name="button" id="button" value="Registar"></a></td>
+        <td><label for="pass"> Repetir password:</label></td>
+		  <td><input type="text" name="pass2" id="pass2"></td>
+      </tr>
+      <tr>
+        <td><input type="submit" name="submit" id="submit" value="Registar"></td>
+		  <td><a href="login.php"></a><input type="button" name="button" id="button" value="Registar"></a></td>
       </tr>
     </tbody>
   </table>
