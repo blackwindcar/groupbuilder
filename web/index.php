@@ -11,18 +11,19 @@ if (!$conn) {
   echo "An error occured.\n";
   exit; // Para a execução do script
 }
+if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
+		header("location: login.php");
+	}
+$sql = "select count(*) from \"utilizador\" where \"user\" = 'admin' and \"$_SESSION["utilizador"]\" = '$_SESSION["password"]'";
+if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
+	pg_close($conn);
+	header("location: registar.php");
+}
+pg_close($conn);
 ?>
 <title>Home</title>
 <head></head>
 <body>
-<?php
-	if($_SESSION["utilizador"]==null){
-		echo("sem user <br>");
-	}
-		echo $_SESSION["utilizador"]."<br>";
-		echo $_SESSION["password"]."<br>";
-	pg_close($conn);
-	?>
 
 </body>
 </html>
