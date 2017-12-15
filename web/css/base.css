@@ -3,7 +3,7 @@
 	margin-left: -200px;
 	padding-left: 50%;
 	height: 150px;
-	margin-top: 100px;
+	margin-top: 200px;
 	color: #FFFFFF;
 }
 #submit {
@@ -24,4 +24,14 @@ body {
 }
 td {
 	background-color: #888;
+}
+#logo{
+	margin-left: -45px;
+	padding-left: 50%;
+}
+footer {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
 }

@@ -24,7 +24,31 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 pg_close($conn);
 ?>
 <title>Home</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
 <head></head>
 <body>
+<header>
+  <table width="100%" border="0">
+    <tbody>
+      <tr>
+        <td width="60%" height="70"><img id="logo" src="img/logo.png" width="91" height="70" alt=""/></td>
+        <td width="40%">&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+</header>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="20%"><nav>O conteúdo da nova tag nav é inserido aqui</nav></td>
+      <td><main>O conteúdo da nova tag main é inserido aqui</main></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<footer>O conteúdo da nova tag footer é inserido aqui</footer>
+
 </body>
 </html>
