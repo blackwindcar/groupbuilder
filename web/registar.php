@@ -22,15 +22,15 @@ if (!$conn) {
     <tbody>
       <tr>
         <td width="278" align="right" valign="middle"><label for="user">User:</label></td>
-        <td width="278" align="left" valign="middle"><input type="text" name="user" id="user"></td>
+        <td width="278" align="left" valign="middle"><input name="user" type="text" required="required" id="user"></td>
       </tr>
       <tr>
         <td align="right" valign="middle"><label for="pass">Password:</label></td>
-        <td align="left" valign="middle"><input type="text" name="pass" id="pass"></td>
+        <td align="left" valign="middle"><input name="pass" type="text" required="required" id="pass"></td>
       </tr>
       <tr>
         <td align="right" valign="middle"><label for="pass"> Repetir password:</label></td>
-		  <td align="left" valign="middle"><input type="text" name="pass2" id="pass2"></td>
+		  <td align="left" valign="middle"><input name="pass2" type="text" required="required" id="pass2"></td>
       </tr>
       <tr>
         <td align="right" valign="middle"><input type="submit" name="submit" id="submit" value="Registar"></td>
