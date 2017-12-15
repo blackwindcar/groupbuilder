@@ -19,9 +19,10 @@ if($SESSION["utilizador"] != "admin" or $$SESSION["password"] != "admin"){
 <body>
 <?php
 	$sql = "CREATE TABLE "user" ("user" varchar(255), password varchar(255));"
-if($conn->query($sql)==true){
+if(mysqli_query($conn, $sql)){
 	echo("tabela criada");
 }
+	mysqli_close($conn);
 	?>
 
 </body>

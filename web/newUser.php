@@ -4,5 +4,6 @@ $conn = pg_connect("host=ec2-184-73-206-155.compute-1.amazonaws.com dbname=dcddr
 if (!$conn) {
   header('Location: login.php');
 }
+mysqli_close($conn);
 
 ?>
