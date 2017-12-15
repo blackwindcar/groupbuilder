@@ -30,11 +30,11 @@ if (!$conn) {
       </tr>
       <tr>
         <td align="right" valign="middle"><label for="pass"> Repetir password:</label></td>
-		  <td align="left" valign="middle"><input name="pass2" type="text" required="required" id="pass2"></td>
+		  <td align="left" valign="middle"><input name="pass2" type="password" required="required" id="pass2"></td>
       </tr>
       <tr>
         <td align="right" valign="middle">Nome:</td>
-        <td align="left" valign="middle"><input name="nome" type="password" required="required" id="nome"></td>
+        <td align="left" valign="middle"><input name="nome" type="text" required="required" id="nome"></td>
       </tr>
       <tr>
         <td align="right" valign="middle">Email:</td>

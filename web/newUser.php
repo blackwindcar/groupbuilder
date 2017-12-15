@@ -18,7 +18,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	pg_close($conn);
 	header('Location: registar.php');
 }
-$sql = "INSERT INTO \"user\"(\"user\", \"password\", \"email\", \"nome\") VALUES ('$user', '$pass', '$email', '$nome')";
+$sql = "INSERT INTO \"utilizador\"(\"user\", \"password\", \"email\", \"nome\") VALUES ('$user', '$pass', '$email', '$nome')";
 
 pg_query($conn,$sql);
 pg_close($conn);
