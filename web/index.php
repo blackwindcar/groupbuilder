@@ -42,12 +42,16 @@ pg_close($conn);
     <tr>
       <td width="200" valign="top">
 	    <nav>
-			<input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="Teste" href="index.php">
-			<input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="Teste" href="index.php">
-			<input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="Teste" href="index.php">
-			<input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="Teste" href="index.php">
+		  <input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="CT_2017" href="index.php">
+		  <input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="SD_2017" href="index.php">
+			<input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="BD_2017" href="index.php">
+			<input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="PGI_2017" href="index.php">
 	    </nav></td>
-      <td><main>O conteúdo da nova tag main é inserido aqui</main></td>
+      <td><main>
+		  <section>teste</section>
+		  <section>teste</section>
+		  <section>teste</section>
+		</main></td>
     </tr>
   </tbody>
 </table>
