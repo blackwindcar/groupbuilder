@@ -13,9 +13,15 @@ $user = $_POST["user"];
 $pass = $_POST["pass"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
-	echo("sim");
+	$_SESSION["utilizador"]= $user;
+	$_SESSION["password"] = $pass;
+	pg_close($conn);
+	header('Location: index.php');
+}else{
+	pg_close($conn);
+	header('Location: login.php');
 }
-pg_close($conn);
+
 //header('Location: index.php');
 
 

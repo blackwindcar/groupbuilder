@@ -16,8 +16,7 @@ if (!$conn) {
 <head></head>
 <body>
 <?php
-	echo("<a>$_SESSION["utilizador"]</a>");
-	echo("<a>$_SESSION["password"]</a>");
+	print_r($_SESSION);
 	pg_close($conn);
 	?>
 
