@@ -17,11 +17,11 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 }
 $sql = "INSERT INTO \"utilizador\"(\"user\", password) VALUES ('$user', '$pass')";
 
-pg_query($conn,$sql))
-	pg_close($conn);
-	$_SESSION["utilizador"] = $user;
-	$_SESSION["password"] = $pass;
-	header('Location: index.php');
+pg_query($conn,$sql));
+pg_close($conn);
+$_SESSION["utilizador"] = $user;
+$_SESSION["password"] = $pass;
+header('Location: index.php');
 
 
 ?>
