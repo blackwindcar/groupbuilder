@@ -16,9 +16,10 @@ if (!$conn) {
 <head></head>
 <body>
 <?php
+	print_r($_SESSION);
 	try{
-		echo("<a>$_SESSION["utilizador"]</a>");
-		echo("<a>$_SESSION["password"]</a>");
+		echo($_SESSION["utilizador"]);
+		echo($_SESSION["password"]);
 	}
 	catch(Exception $e){
 		pg_close($conn);
