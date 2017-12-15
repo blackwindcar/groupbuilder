@@ -19,13 +19,12 @@ $pass = $_SESSION["password"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
-	header("location: registar.php");
+	header("location: login.php");
 }
 pg_close($conn);
 ?>
 <title>Home</title>
 <head></head>
 <body>
-
 </body>
 </html>

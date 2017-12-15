@@ -14,9 +14,10 @@ if (!$conn) {
 	pg_close($conn);
 ?>
 <title>Login</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
 <head></head>
 <body>
-<form action="newUser.php" method="post" name="form1" id="form1">
+<form class = "form_login" action="newUser.php" method="post" name="form1" id="form1">
   <table width="288" border="1">
     <tbody>
       <tr>

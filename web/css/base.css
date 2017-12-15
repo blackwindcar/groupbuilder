@@ -1,0 +1,10 @@
+* {
+	background-color: #444;
+}
+.form_login {
+	min-width: 200px;
+	width: 40%;
+}
+body {
+	text-align: center;
+}
