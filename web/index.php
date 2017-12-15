@@ -14,7 +14,9 @@ if (!$conn) {
 if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
 		header("location: login.php");
 	}
-$sql = "select count(*) from \"utilizador\" where \"user\" = 'admin' and \"$_SESSION["utilizador"]\" = '$_SESSION["password"]'";
+$user = $_SESSION["utilizador"];
+$pass = $_SESSION["password"];
+$sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
 	header("location: registar.php");
