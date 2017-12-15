@@ -46,3 +46,11 @@ main{
 	min-height: 400px;
 	background-color: #CBCBCB;
 }
+.linhaNav {
+	width: 180px;
+	padding: 10px;
+	background-color: #C7C7C7;
+	text-align: center;
+	border-radius: 5px;
+	
+}

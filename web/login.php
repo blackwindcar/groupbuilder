@@ -26,7 +26,7 @@ if (!$conn) {
       </tr>
       <tr>
         <td align="right" valign="middle"><label for="pass">Password:</label></td>
-        <td align="left" valign="middle"><input type="text" name="pass" id="pass"></td>
+        <td align="left" valign="middle"><input type="password" name="pass" id="pass"></td>
       </tr>
       <tr>
         <td align="right" valign="middle"><input type="submit" name="submit" id="submit" value="Login"></td>

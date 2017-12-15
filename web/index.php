@@ -40,7 +40,13 @@ pg_close($conn);
 <table width="100%" border="0">
   <tbody>
     <tr>
-      <td width="200"><nav>O conteúdo da nova tag nav é inserido aqui</nav></td>
+      <td width="200" valign="top">
+		  <nav>
+			  <div href="index.php" class = "linhaNav">Teste</div>
+			  <div href="index.php" class = "linhaNav">Teste</div>
+			  <div href="index.php" class = "linhaNav">Teste</div>
+			  <div href="index.php" class = "linhaNav">Teste</div>
+		  </nav></td>
       <td><main>O conteúdo da nova tag main é inserido aqui</main></td>
     </tr>
   </tbody>
