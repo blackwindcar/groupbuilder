@@ -30,7 +30,7 @@ if (!$conn) {
       </tr>
       <tr>
         <td align="right" valign="middle"><input type="submit" name="submit" id="submit" value="Login"></td>
-		  <td align="left" valign="middle"><a href="registar.php"  style="color: #FFFFFF">registar</a></td>
+		  <td align="left" valign="middle"><a href="registar.php"  class='botao1' style="color: #FFFFFF">Registar</a></td>
       </tr>
     </tbody>
   </table>
