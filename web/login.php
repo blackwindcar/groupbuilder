@@ -1,10 +1,10 @@
-<?php
+<!--<?php
 // Start the session
 session_start();
-?>
+?>-->
 <!DOCTYPE html>
 <html>
-<?php
+<!--<?php
 $conn = pg_connect();
 $conn = pg_connect("host=ec2-184-73-206-155.compute-1.amazonaws.com dbname=dcddreidjnggtn user=agvlrlhnpncwkh password=548d6de5795bf901f45d996069017c9002b8374deada3c37331b2ab74bea0e56");
 if (!$conn) {
@@ -12,7 +12,7 @@ if (!$conn) {
   exit; // Para a execução do script
 }
 	pg_close($conn);
-?>
+?>-->
 <title>Login</title>
 <link href="css/base.css" rel="stylesheet" type="text/css">
 <head></head>
@@ -29,8 +29,8 @@ if (!$conn) {
         <td align="left" valign="middle"><input type="password" name="pass" id="pass"></td>
       </tr>
       <tr>
-        <td align="right" valign="middle"><input type="submit" name="submit" id="submit" value="Login"></td>
-		  <td align="left" valign="middle"><a href="registar.php"  class='botao1' style="color: #FFFFFF">Registar</a></td>
+        <td align="right" valign="middle"><input type="submit"  class='botao1' name="submit" value="Login"></td>
+		  <td align="left" valign="middle"><a href="registar.php"  class='botao1'>Registar</a></td>
       </tr>
     </tbody>
   </table>
