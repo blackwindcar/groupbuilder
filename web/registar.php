@@ -1,10 +1,23 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
+<?php
+	$conn = pg_connect();
+	$conn = pg_connect("host=ec2-184-73-206-155.compute-1.amazonaws.com dbname=dcddreidjnggtn user=agvlrlhnpncwkh password=548d6de5795bf901f45d996069017c9002b8374deada3c37331b2ab74bea0e56");
+	if (!$conn) {
+	  echo "An error occured.\n";
+	  exit; // Para a execução do script
+	}
+		pg_close($conn);
+?>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Login</title>
+<title>Registar</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -18,7 +31,7 @@
     <![endif]-->
 </head>
 <body>
-	<div class="container"></div>
+<div class="container"></div>
 <div class="container"></div>
 <div class="container col-sm-6 col-sm-offset-3 text-center bg-form-base">
 	<form action="login_authentication.php" method="post">
@@ -29,13 +42,25 @@
 		</div>
 		<div class="form-group">
 			<label for="pwd">Password:</label>
-			<input type="password" class="form-control" id="pwd">
+			<input type="password" name="pass" class="form-control" id="pass">
+		  </div>
+		<div class="form-group">
+			<label for="pwd">Repetir password:</label>
+			<input type="password" name="pass2" class="form-control" id="pass2">
+		  </div>
+		<div class="form-group">
+			<label for="pwd">Nome:</label>
+			<input type="password" name="nome" class="form-control" id="nome">
+		  </div>
+		<div class="form-group">
+			<label for="pwd">Email:</label>
+			<input type="password" name="email" class="form-control" id="email">
 		  </div>
 		<div class="form-group">
 		  <div class="container col-sm-6 col-sm-offset-3">
-				<button type="submit" class="btn btn-primary">Login</button>
-			  <a href="registar.php">
-				<button type="button" class="btn btn-primary">Registar</button>
+				<button type="submit" class="btn btn-primary">Registar</button>
+			  <a href="login.php">
+				<button type="button" class="btn btn-primary">login</button>
 			</a>
 			  
 			</div>
