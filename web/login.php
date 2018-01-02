@@ -38,11 +38,11 @@ if (!$conn) {
 		<div class="form-group"></div>
 		<div class="form-group">
 			<label for="email">User:</label>
-    		<input type="user" class="form-control" id="user">
+    		<input type="user" class="form-control" id="user" name="user">
 		</div>
 		<div class="form-group">
 			<label for="pwd">Password:</label>
-			<input type="password" class="form-control" id="pwd">
+			<input type="password" class="form-control" id="pass" name"pass">
 		  </div>
 		<div class="form-group">
 		  <div class="container col-sm-6 col-sm-offset-3">
