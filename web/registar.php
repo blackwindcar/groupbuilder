@@ -34,7 +34,7 @@ session_start();
 <div class="container"></div>
 <div class="container"></div>
 <div class="container col-sm-6 col-sm-offset-3 text-center bg-form-base">
-	<form action="login_authentication.php" method="post">
+	<form action="newUser.php" method="post">
 		<div class="form-group"></div>
 		<div class="form-group">
 			<label for="email">User:</label>
@@ -50,11 +50,11 @@ session_start();
 		  </div>
 		<div class="form-group">
 			<label for="pwd">Nome:</label>
-			<input type="password" name="nome" class="form-control" id="nome">
+			<input type="text" name="nome" class="form-control" id="nome">
 		  </div>
 		<div class="form-group">
 			<label for="pwd">Email:</label>
-			<input type="password" name="email" class="form-control" id="email">
+			<input type="email" name="email" class="form-control" id="email">
 		  </div>
 		<div class="form-group">
 		  <div class="container col-sm-6 col-sm-offset-3">
