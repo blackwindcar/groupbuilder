@@ -53,5 +53,6 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 		
 		?></a>
 </form>
+<a href="index.php">voltar</a>
 </body>
 </html>

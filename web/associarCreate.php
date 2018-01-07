@@ -1,6 +1,4 @@
-<!doctype html>
 <?php
-// Start the session
 session_start();
 
 $conn = pg_connect();
@@ -11,38 +9,43 @@ if (!$conn) {
 }
 
 if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
-		
 		pg_close($conn);
 		header("location: login.php");
-		
+		exit;
 	}
+
 $user = $_SESSION["utilizador"];
 $pass = $_SESSION["password"];
+
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
 	header("location: login.php");
+	exit;
 }
+
+if($_POST["nome"] == null){
+	pg_close($conn);
+	header("location: associar.php?msn=erro");
+	exit;
+}
+$nome = $_POST["nome"];
+$sql = "SELECT count(*) FROM \"projeto\" where \"nome\" = '$nome'";
+
+if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
+	pg_close($conn);
+	header("location: associar.php?msn=erro");
+	exit;
+}
+
+$sql = "INSERT INTO \"uestap\" VALUES ('$user','$nome' , null, '$user', '$user', CURRENT_TIMESTAMP);";
+if(pg_query($conn,$sql)){
+	pg_close($conn);
+	header("location: index.php?msn=associado");
+	exit;
+}
+pg_close($conn);
+header("location: associar.php?msn=erro");
+exit;
+
 ?>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Home</title>
-</head>
-
-<body>
-<a href="conta.php"><?php echo($user); ?></a>
-<a href="newProject.php">Novo Projecto</a>
-<a href="associar.php">Associar</a>
-<div>
-	<?php
-	$sql = "SELECT * FROM \"projeto\" where \"admin\" = '$user'";
-	$result = pg_query($conn,$sql);
-	while($row = pg_fetch_row($result)){
-		echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
-	}
-	?>
-</div>
-
-</body>
-</html>
