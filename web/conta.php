@@ -72,6 +72,16 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
   <label for="email">Novo email:</label>
     <input type="email" name="email" id="email">
   <input type="submit" name="submit2" id="submit2" value="Enviar">
+	<a><?php 
+		if($_GET["email"]!=null){
+			if($_GET["email"]==="erro"){echo("Email alterado");}
+			if($_GET["email"]==="success"){echo("Email não alterado");}
+		}
+		else{
+			echo("");
+		}
+		
+		?></a>
 </form>
 <form action="newNome.php" method="post" name="form2" id="form2">
   <h3>Mudar nome:</h3>
