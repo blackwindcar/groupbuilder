@@ -42,7 +42,10 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
   <input type="submit" name="Criar" id="Criar" value="Criar">
 	<a><?php 
 		if($_GET["msn"]!=null){
-			if($_GET["nome"]==="erro"){echo("Dados incorrectos");}
+			if($_GET["msn"]==="nome"){echo("Dados incorrectos");}
+			if($_GET["msn"]==="existe"){echo("O mome do projecto já existe.");}
+			if($_GET["msn"]==="numero"){echo("O numero de grupos é inválido");}
+			
 		}
 		else{
 			echo("");

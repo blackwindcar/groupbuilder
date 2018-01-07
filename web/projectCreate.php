@@ -25,6 +25,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 }
 
 if($_POST["nome"] == null or $_POST["datetime"] == null or $_POST["numMin"] == null or $_POST["numMax"] == null  ){
+	pg_close($conn);
 	header("location: newProject.php?msn=erro");
 	exit;
 }
@@ -34,5 +35,26 @@ $dateTime = $_POST["datetime"];
 $numMin = $_POST["numMin"];
 $numMax = $_POST["numMax"];
 
-echo("$nome</br>$dateTime</br>$numMin</br>$numMax");
+$sql = "SELECT count(*) FROM Projeto where \"nome\" = '$nome'";
+if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
+	pg_close($conn);
+	header('Location: newProject.php?msn=existe');
+	exit;
+}
+
+if($numMin > $numMax or $numMin <1 or $numMax < 1 ){
+	pg_close($conn);
+	header('Location: newProject.php?msn=numero');
+	exit;
+}
+
+$sql = "INSERT INTO Projeto VALUES ('$nome', '$user', '$nome', TO_TIMESTAMP('$dateTime','yyyy-mm-dd'), $numMin, $numMax)";
+if(pg_query($conn,$sql)){
+	pg_close($conn);
+	header('Location: index.php?msn=projetocriado');
+	exit;
+}
+pg_close($conn);
+header("location: newProject.php?msn=erro");
+exit;
 ?>
