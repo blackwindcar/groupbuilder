@@ -8,7 +8,7 @@ if (!$conn) {
 
 if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){	
 		pg_close($conn);
-		//header("location: login.php");
+		header("location: login.php");
 		
 	}
 $user = $_SESSION["utilizador"];
