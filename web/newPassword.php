@@ -23,13 +23,16 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 if($_POST["pass"] == null or $_POST["npass"] == null or $_POST["npass2"] == null){
 	header("location: conta.php?pass=erro");
 }
-if($_POST["pass"]!=$pass){
+$old_pass = $_POST["pass"];
+$new_pass = $_POST["npass"];
+
+if($old_pass!=$pass){
+	echo("$old_pass</br>$pass");
 	header("location: conta.php?pass=badpass");
 }
 if($_POST["npass"]!=$_POST["npass2"]){
 	header("location: conta.php?pass=passdiferente");
 }
-$old_pass = $_POST["pass"];
-$new_pass = $_POST["npass"];
+
 echo("$old_pass</br>$new_pass");
 ?>
