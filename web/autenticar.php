@@ -8,7 +8,7 @@ if (!$conn) {
   echo "An error occured.\n";
   exit; // Para a execução do script
 }
-f($_POST["user"] == null or $pass = $_POST["pass"] == null){
+if($_POST["user"] == null or $pass = $_POST["pass"] == null){
 	header("location: login.php");
 }
 $user = $_POST["user"];
