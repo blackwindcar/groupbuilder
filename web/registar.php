@@ -18,12 +18,14 @@ if (!$conn) {
 
 <body>
 <form action="newUser.php" method="post" name="form1" id="form1">
-  <label for="user">User:</label>
+  <label for="nome">User:</label>
   <input name="user" type="text" autofocus="autofocus" required="required" id="user" autocomplete="on">
   <label for="pass">Password:</label>
   <input name="pass" type="password" required="required" id="pass" form="form1" autocomplete="on">
   <label for="pass2">Repetir Password:</label>
   <input name="pass2" type="password" required="required" id="pass2">
+	<label for="nome">Nome:</label>
+  <input name="nome" type="text" autofocus="autofocus" required="required" id="nome" autocomplete="on">
   <label for="email">Email:</label>
   <input name="email" type="email" required="required" id="email" form="form1" autocomplete="on">
   <label for="numero">Número da Universidade*:</label>
