@@ -20,7 +20,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
 	//header("location: login.php");
 }
-echo("login: ".pg_fetch_row(pg_query($conn,$sql))[0]=="0");
+echo("</br>login: ".pg_fetch_row(pg_query($conn,$sql))[0]);
 
 if($_POST["pass"] == null or $_POST["npass"] == null or $_POST["npass2"] == null){
 	//header("location: conta.php?pass=erro");
@@ -31,17 +31,17 @@ if(strcasecmp($pass,$oldPass)!=0){
 	pg_close($conn);
 	//header("location: conta.php?pass=passDiferente");
 }
-echo("antiga: ".strcasecmp($pass,$oldPass));
+echo("</br>antiga: ".strcasecmp($pass,$oldPass));
 if(strcasecmp($newPass,$oldPass)==0){
 	pg_close($conn);
 	//header("location: conta.php?pass=passOldigual");
 }
-echo("nova  e velha".strcasecmp($newPass,$oldPass));
+echo("</br>nova  e velha: ".strcasecmp($newPass,$oldPass));
 if(strcasecmp($newPass,$_POST["npass2"])!=0){
 	pg_close($conn);
 	//header("location: conta.php?pass=passdiferente");
 }
-
+echo("</br>novas iguais: ".strcasecmp($newPass,$_POST["npass2"]));
 $sql = "UPDATE \"utilizador\" SET \"pass\" = '$newPass' WHERE \"user\" = '$user'";
 echo($sql);
 if(pg_query($conn,$sql)){
