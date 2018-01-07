@@ -43,12 +43,12 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
 <h1><?php echo($_SESSION["utilizador"]); ?></h1>
 <form action="newPassword.php" method="post" name="form1" id="form1">
 	<h3>Nova password:</h3>
-	  <label for="textfield">Password antiga:</label>
-      <input type="text" name="textfield" id="textfield">
-      <label for="textfield2">Nova password:</label>
-      <input type="text" name="textfield2" id="textfield2">
-      <label for="textfield3">Repetir password:</label>
-      <input type="text" name="textfield3" id="textfield3">
+	  <label for="pass">Password antiga:</label>
+      <input type="text" name="pass" id="pass">
+      <label for="npass">Nova password:</label>
+      <input type="text" name="npass" id="npass">
+      <label for="npass2">Repetir password:</label>
+      <input type="text" name="npass2" id="npass2">
       <input type="submit" name="submit" id="submit" value="Enviar">
 </form>
 <form action="newEmail.php" method="post" name="form2" id="form2">
@@ -67,7 +67,7 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
 </form>
 <form action="newNumero.php" method="post" name="form2" id="form2">
   <h3>Mudar numero:</h3>
-	<a>Numero actual: <?php echo($nome); ?></a></br>
+	<a>Numero actual: <?php echo($numero); ?></a></br>
   <label for="email">Novo numero:</label>
     <input type="email" name="email" id="email">
   <input type="submit" name="submit2" id="submit2" value="Enviar">
