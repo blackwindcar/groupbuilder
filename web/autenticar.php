@@ -21,8 +21,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 }
 $_SESSION["utilizador"]= $user;
 $_SESSION["password"] = $pass;
-echo("</br>$user</br>$pass");
 pg_close($conn);
-//header("location: index.php");
+header("location: index.php");
 
 ?>
