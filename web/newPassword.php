@@ -7,9 +7,10 @@ if (!$conn) {
   exit; // Para a execução do script
 }
 
-if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){	
+if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
+		
 		pg_close($conn);
-		//header("location: login.php");
+		header("location: login.php");
 		
 	}
 $user = $_SESSION["utilizador"];
@@ -20,16 +21,17 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	header("location: login.php");
 }
 
+
 if($_POST["pass"] == null or $_POST["npass"] == null or $_POST["npass2"] == null){
 	header("location: conta.php?pass=erro");
 }
-$old_pass = $_POST["pass"];
-$new_pass = $_POST["npass"];
+$oldPass = $_POST["pass"];
+$newPass = $_POST["npass"];
 ?>
 <html>
 <head>
 </head><body>
 <?php
-	echo("$user</br>$pass</br>$old_pass</br>$new_pass")
+	echo("$user</br>$pass</br>$oldPass</br>$newPass")
 	?>
 </body></html>

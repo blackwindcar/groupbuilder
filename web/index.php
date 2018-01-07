@@ -31,6 +31,6 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 </head>
 
 <body>
-<a href="conta.php"><?php echo($_SESSION["utilizador"]); ?></a>
+<a href="conta.php"><?php echo($user); ?></a>
 </body>
 </html>
