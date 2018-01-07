@@ -43,7 +43,7 @@ if(strcasecmp($newPass,$_POST["npass2"])!=0){
 }
 echo("</br>novas iguais: ".strcasecmp($newPass,$_POST["npass2"]));
 $sql = "UPDATE \"utilizador\" SET \"pass\" = '$newPass' WHERE \"user\" = '$user'";
-echo($sql);
+echo("</br>".$sql);
 if(pg_query($conn,$sql)){
 	pg_close($conn);
 	//header("location: conta.php?pass=success");
