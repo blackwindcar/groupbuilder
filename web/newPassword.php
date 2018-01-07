@@ -17,7 +17,7 @@ $pass = $_SESSION["password"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
-	header("location: login.php");
+	//header("location: login.php");
 }
 
 if($_POST["pass"] == null or $_POST["npass"] == null or $_POST["npass2"] == null){
@@ -32,4 +32,5 @@ $new_pass = $_POST["npass"];
 <?php
 	echo("$pass</br>$old_pass</br>$new_pass")
 	?>
-	</body></html>
+</body>
+</html>
