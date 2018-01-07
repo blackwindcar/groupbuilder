@@ -9,42 +9,46 @@ if (!$conn) {
 
 if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
 		pg_close($conn);
-		header("location: login.php");
+		//header("location: login.php");
 		
 	}
+echo("secao: ".($_SESSION["utilizador"]==null or $_SESSION["password"]==null));
 $user = $_SESSION["utilizador"];
 $pass = $_SESSION["password"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
-	header("location: login.php");
+	//header("location: login.php");
 }
-
+echo("login: ".pg_fetch_row(pg_query($conn,$sql))[0]=="0");
 
 if($_POST["pass"] == null or $_POST["npass"] == null or $_POST["npass2"] == null){
-	header("location: conta.php?pass=erro");
+	//header("location: conta.php?pass=erro");
 }
 $oldPass = $_POST["pass"];
 $newPass = $_POST["npass"];
 if(strcasecmp($pass,$oldPass)!=0){
 	pg_close($conn);
-	header("location: conta.php?pass=passDiferente");
+	//header("location: conta.php?pass=passDiferente");
 }
+echo("antiga: ".strcasecmp($pass,$oldPass));
 if(strcasecmp($newPass,$oldPass)==0){
 	pg_close($conn);
-	header("location: conta.php?pass=passOldigual");
+	//header("location: conta.php?pass=passOldigual");
 }
+echo("nova  e velha".strcasecmp($newPass,$oldPass));
 if(strcasecmp($newPass,$_POST["npass2"])!=0){
 	pg_close($conn);
-	header("location: conta.php?pass=passdiferente");
+	//header("location: conta.php?pass=passdiferente");
 }
 
 $sql = "UPDATE \"utilizador\" SET \"pass\" = '$newPass' WHERE \"user\" = '$user'";
+echo($sql);
 if(pg_query($conn,$sql)){
 	pg_close($conn);
-	header("location: conta.php?pass=success");
-}
+	//header("location: conta.php?pass=success");
+}else{
 	pg_close($conn);
-	header("location: conta.php?pass=falhou");
-
+	//header("location: conta.php?pass=falhou");
+}
 ?>
