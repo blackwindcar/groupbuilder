@@ -24,18 +24,18 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	exit;
 }
 
-if($_POST["email"] == null){
-	header("location: conta.php?email=erro");
+if($_POST["nome"] == null){
+	header("location: conta.php?nome=erro");
 	exit;
 }
-$email = $_POST["email"];
-$sql = "UPDATE \"utilizador\" SET \"email\" = '$email' WHERE \"user\" = '$user'";
+$nome = $_POST["nome"];
+$sql = "UPDATE \"utilizador\" SET \"nome\" = '$nome' WHERE \"user\" = '$user'";
 if(pg_query($conn,$sql)){
 	pg_close($conn);
-	header("location: conta.php?email=success");
+	header("location: conta.php?nome=success");
 	exit;
 }
 pg_close($conn);
-header("location: conta.php?email=erro");
+header("location: conta.php?nome=erro");
 exit;
 ?>

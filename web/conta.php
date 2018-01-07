@@ -74,8 +74,8 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
   <input type="submit" name="submit2" id="submit2" value="Enviar">
 	<a><?php 
 		if($_GET["email"]!=null){
-			if($_GET["email"]==="erro"){echo("Email alterado");}
-			if($_GET["email"]==="success"){echo("Email não alterado");}
+			if($_GET["email"]==="erro"){echo("Email não alterado");}
+			if($_GET["email"]==="success"){echo("Email alterado");}
 		}
 		else{
 			echo("");
@@ -87,14 +87,24 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
   <h3>Mudar nome:</h3>
 	<a>Nome actual: <?php echo($nome); ?></a></br>
   <label for="email">Novo nome:</label>
-    <input type="email" name="email" id="email">
+    <input type="text" name="nome" id="nome">
   <input type="submit" name="submit2" id="submit2" value="Enviar">
+	<a><?php 
+		if($_GET["nome"]!=null){
+			if($_GET["nome"]==="erro"){echo("Nome não alterado");}
+			if($_GET["nome"]==="success"){echo("Nome alterado");}
+		}
+		else{
+			echo("");
+		}
+		
+		?></a>
 </form>
 <form action="newNumero.php" method="post" name="form2" id="form2">
   <h3>Mudar numero:</h3>
 	<a>Numero actual: <?php echo($numero); ?></a></br>
-  <label for="email">Novo numero:</label>
-    <input type="email" name="email" id="email">
+  <label for="numero">Novo numero:</label>
+    <input type="text" name="numero" id="numero">
   <input type="submit" name="submit2" id="submit2" value="Enviar">
 </form>
 <a href="index.php">voltar</a>
