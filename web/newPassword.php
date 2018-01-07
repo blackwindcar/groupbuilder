@@ -12,7 +12,7 @@ if (!$conn) {
 if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
 		pg_close($conn);
 		header("location: login.php");
-		
+		exit;
 	}
 
 $user = $_SESSION["utilizador"];
@@ -22,10 +22,12 @@ $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"passw
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
 	header("location: login.php");
+	exit;
 }
 
 if($_POST["pass"] == null or $_POST["npass"] == null or $_POST["npass2"] == null){
 	header("location: conta.php?pass=erro");
+	exit;
 }
 $oldPass = $_POST["pass"];
 $newPass = $_POST["npass"];
@@ -33,16 +35,19 @@ $newPass = $_POST["npass"];
 if(strcasecmp($pass,$oldPass)!=0){
 	pg_close($conn);
 	header("location: conta.php?pass=passDiferente");
+	exit;
 }
 
 if(strcasecmp($newPass,$oldPass)==0){
 	pg_close($conn);
 	header("location: conta.php?pass=passOldigual");
+	exit;
 }
 
 if(strcasecmp($newPass,$_POST["npass2"])!=0){
 	pg_close($conn);
 	header("location: conta.php?pass=passdiferente");
+	exit;
 }
 
 $sql = "UPDATE \"utilizador\" SET \"pass\" = '$newPass' WHERE \"user\" = '$user'";
@@ -50,8 +55,10 @@ $sql = "UPDATE \"utilizador\" SET \"pass\" = '$newPass' WHERE \"user\" = '$user'
 if(pg_query($conn,$sql)){
 	pg_close($conn);
 	header("location: conta.php?pass=success");
+	exit;
 }else{
 	pg_close($conn);
 	header("location: conta.php?pass=falhou");
+	exit;
 }
 ?>
