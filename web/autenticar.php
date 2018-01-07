@@ -1,4 +1,3 @@
-<!doctype html>
 <?php
 // Start the session
 session_start();
@@ -9,27 +8,19 @@ if (!$conn) {
   echo "An error occured.\n";
   exit; // Para a execução do script
 }
-
-if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
-		
-		pg_close($conn);
-		header("location: login.php");
-		
-	}
-$user = $_SESSION["utilizador"];
-$pass = $_SESSION["password"];
+f($_POST["user"] == null or $pass = $_POST["pass"] == null){
+	header("location: login.php");
+}
+$user = $_POST["user"];
+$pass = $_POST["pass"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
-	header("location: login.php");
+	header("location: login.php?msn=Credenciais+erradas");
 }
-?>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Home</title>
-</head>
+$_SESSION["utilizador"]= $user;
+$_SESSION["password"] = $pass;
+pg_close($conn);
+header("location: index.php");
 
-<body>
-</body>
-</html>
+?>

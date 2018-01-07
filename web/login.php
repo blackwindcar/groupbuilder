@@ -1,3 +1,4 @@
+<!doctype html>
 <?php
 // Start the session
 session_start();
@@ -9,7 +10,6 @@ if (!$conn) {
   exit; // Para a execução do script
 }
 ?>
-<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -17,13 +17,13 @@ if (!$conn) {
 </head>
 
 <body>
-<form id="form1" name="form1" method="post">
-  <label for="textfield">Text Field:</label>
-  <input type="text" name="textfield" id="textfield">
-  <label for="textfield2">Text Field:</label>
-  <input type="text" name="textfield2" id="textfield2">
-  <input type="submit" name="submit" id="submit" value="Enviar">
-  <input type="button" name="button" id="button" value="Enviar">
+<form action="autenticar.php" method="post" name="form1" id="form1">
+  <label for="user">user:</label>
+  <input type="text" name="user" id="user">
+  <label for="pass">password:</label>
+  <input type="text" name="pass" id="pass">
+  <input name="submit" type="submit" id="submit" form="form1" value="Login">
+	<a href="registar.php"><input type="button" name="button" id="button" value="Registar"></a>
 </form>
 </body>
 </html>
