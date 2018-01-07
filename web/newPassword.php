@@ -13,8 +13,10 @@ if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
 		
 	}
 echo("secao: ".($_SESSION["utilizador"]==null or $_SESSION["password"]==null));
+
 $user = $_SESSION["utilizador"];
 $pass = $_SESSION["password"];
+echo("</br>user: $user</br>pass: $pass");
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
