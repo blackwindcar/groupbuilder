@@ -6,8 +6,7 @@ if (!$conn) {
   exit; // Para a execução do script
 }
 
-if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
-		
+if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){	
 		pg_close($conn);
 		header("location: login.php");
 		
@@ -28,11 +27,11 @@ $new_pass = $_POST["npass"];
 
 if($old_pass!=$pass){
 	echo("$old_pass</br>$pass");
-	//header("location: conta.php?pass=badpass");
+	header("location: conta.php?pass=badpass");
 }
 if($_POST["npass"]!=$_POST["npass2"]){
-	//header("location: conta.php?pass=passdiferente");
+	header("location: conta.php?pass=passdiferente");
 }
 
-echo("$old_pass</br>$new_pass");
+header("location: conta.php?pass=success")
 ?>
