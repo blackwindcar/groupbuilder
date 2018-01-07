@@ -1,18 +1,19 @@
 <?php
 // Start the session
 session_start();
-?>
-<!DOCTYPE html>
-<html>
-<?php
+
 $conn = pg_connect();
 $conn = pg_connect("host=ec2-184-73-206-155.compute-1.amazonaws.com dbname=dcddreidjnggtn user=agvlrlhnpncwkh password=548d6de5795bf901f45d996069017c9002b8374deada3c37331b2ab74bea0e56");
 if (!$conn) {
   echo "An error occured.\n";
   exit; // Para a execução do script
 }
+
 if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
+		
+		pg_close($conn);
 		header("location: login.php");
+		
 	}
 $user = $_SESSION["utilizador"];
 $pass = $_SESSION["password"];
@@ -21,45 +22,14 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
 	header("location: login.php");
 }
-pg_close($conn);
 ?>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
 <title>Home</title>
-<link href="css/base.css" rel="stylesheet" type="text/css">
-<head></head>
+</head>
+
 <body>
-<header>
-  <table width="100%" border="0">
-    <tbody>
-      <tr>
-        <td width="60%" height="70"><img id="logo" src="img/logo.png" width="91" height="70" alt=""/></td>
-        <td width="40%" align="right" valign="middle"><input name="user" type="button" class = "user
-			" id="user" form="index.php" value="." href="index.php" onClick="window.location.assign("logout.php");"></td>
-      </tr>
-    </tbody>
-  </table>
-</header>
-<table width="100%" border="0">
-  <tbody>
-    <tr>
-      <td width="200" valign="top">
-	    <nav>
-		  <input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="CT_2017" href="index.php">
-		  <input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="SD_2017" href="index.php">
-			<input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="BD_2017" href="index.php">
-			<input name="Teste" type="button" class = "linhaNav" id="Teste" form="index.php" value="PGI_2017" href="index.php">
-	    </nav></td>
-      <td><main>
-		  <section>teste</section>
-		  <section>teste</section>
-		  <section>teste</section>
-		</main></td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-<footer>O conteúdo da nova tag footer é inserido aqui</footer>
-
 </body>
 </html>
