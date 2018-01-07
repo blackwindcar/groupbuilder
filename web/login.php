@@ -19,9 +19,9 @@ if (!$conn) {
 <body>
 <form action="autenticar.php" method="post" name="form1" id="form1">
   <label for="user">user:</label>
-  <input type="text" name="user" id="user">
+  <input name="user" type="text" autofocus="autofocus" required="required" id="user" autocomplete="on">
   <label for="pass">password:</label>
-  <input type="text" name="pass" id="pass">
+  <input name="pass" type="text" required="required" id="pass" autocomplete="on">
   <input name="submit" type="submit" id="submit" form="form1" value="Login">
 	<a href="registar.php"><input type="button" name="button" id="button" value="Registar"></a>
 </form>

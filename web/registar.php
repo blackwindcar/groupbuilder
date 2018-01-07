@@ -25,11 +25,11 @@ if (!$conn) {
   <label for="pass2">Repetir Password:</label>
   <input name="pass2" type="password" required="required" id="pass2">
 	<label for="nome">Nome:</label>
-  <input name="nome" type="text" autofocus="autofocus" required="required" id="nome" autocomplete="on">
+  <input name="nome" type="text" required="required" id="nome" autocomplete="on">
   <label for="email">Email:</label>
   <input name="email" type="email" required="required" id="email" form="form1" autocomplete="on">
   <label for="numero">Número da Universidade*:</label>
-  <input name="numero" type="number" required="required" id="numero" form="form1">
+  <input name="numero" type="number" required="required" id="numero" form="form1" autocomplete="on">
   <label for="tipo">Tipo*:</label>
   <select name="tipo" required="required" id="tipo" form="form1">
     <option>aluno</option>

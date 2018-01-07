@@ -23,7 +23,6 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
 	header("location: login.php");
 }
-echo("$user</br>$pass");
 ?>
 <html>
 <head>
@@ -32,5 +31,6 @@ echo("$user</br>$pass");
 </head>
 
 <body>
+<a href="conta.php"><?php echo($_SESSION["utilizador"]); ?></a>
 </body>
 </html>
