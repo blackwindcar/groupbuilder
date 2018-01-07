@@ -1,4 +1,3 @@
-<!doctype html>
 <?php
 $conn = pg_connect();
 $conn = pg_connect("host=ec2-184-73-206-155.compute-1.amazonaws.com dbname=dcddreidjnggtn user=agvlrlhnpncwkh password=548d6de5795bf901f45d996069017c9002b8374deada3c37331b2ab74bea0e56");
@@ -17,20 +16,6 @@ $pass = $_SESSION["password"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
-	//header("location: login.php");
+	header("location: login.php");
 }
-
-if($_POST["pass"] == null or $_POST["npass"] == null or $_POST["npass2"] == null){
-	header("location: conta.php?pass=erro");
-}
-$old_pass = $_POST["pass"];
-$new_pass = $_POST["npass"];
 ?>
-<html>
-<head>
-</head><body>
-<?php
-	echo("$pass</br>$old_pass</br>$new_pass")
-	?>
-</body>
-</html>

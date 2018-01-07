@@ -44,7 +44,7 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
 <form action="newPassword.php" method="post" name="form1" id="form1">
 	<h3>Nova password:</h3>
 	  <label for="pass">Password antiga:</label>
-      <input type="text" name="pass" id="pass">
+      <input type="password" name="pass" id="pass">
       <label for="npass">Nova password:</label>
       <input type="text" name="npass" id="npass">
       <label for="npass2">Repetir password:</label>
