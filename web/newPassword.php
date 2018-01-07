@@ -28,10 +28,10 @@ $new_pass = $_POST["npass"];
 
 if($old_pass!=$pass){
 	echo("$old_pass</br>$pass");
-	header("location: conta.php?pass=badpass");
+	//header("location: conta.php?pass=badpass");
 }
 if($_POST["npass"]!=$_POST["npass2"]){
-	header("location: conta.php?pass=passdiferente");
+	//header("location: conta.php?pass=passdiferente");
 }
 
 echo("$old_pass</br>$new_pass");
