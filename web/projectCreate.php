@@ -1,6 +1,4 @@
-<!doctype html>
 <?php
-// Start the session
 session_start();
 
 $conn = pg_connect();
@@ -11,27 +9,30 @@ if (!$conn) {
 }
 
 if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
-		
 		pg_close($conn);
 		header("location: login.php");
-		
+		exit;
 	}
+
 $user = $_SESSION["utilizador"];
 $pass = $_SESSION["password"];
+
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
 	header("location: login.php");
+	exit;
 }
-?>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Home</title>
-</head>
 
-<body>
-<a href="conta.php"><?php echo($user); ?></a>
-<a href="newProject.php">Novo Projecto</a>
-</body>
-</html>
+if($_POST["nome"] == null or $_POST["datetime"] == null or $_POST["numMin"] == null or $_POST["numMax"] == null  ){
+	header("location: newProject.php?msn=erro");
+	exit;
+}
+
+$nome = $_POST["nome"];
+$dateTime = $_POST["datetime"];
+$numMin = $_POST["numMin"];
+$numMax = $_POST["numMax"];
+
+echo("$nome</br>$dateTime</br>$numMin</br>$numMax");
+?>
