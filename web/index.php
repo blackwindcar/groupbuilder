@@ -33,5 +33,15 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 <body>
 <a href="conta.php"><?php echo($user); ?></a>
 <a href="newProject.php">Novo Projecto</a>
+<div>
+	<?php
+	$sql = "SELECT * FROM \"projeto\" where \"admin\" = '$user'";
+	$result = pg_query($conn,$sql);
+	while($row = pg_fetch_row($result)){
+		echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
+	}
+	?>
+	</div>
+
 </body>
 </html>
