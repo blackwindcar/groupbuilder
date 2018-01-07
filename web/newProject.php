@@ -34,7 +34,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
   <label for="nome">Nome: </label>
   <input name="nome" type="text" autofocus="autofocus" required="required" id="nome" autocomplete="off">
   <label for="datetime">Data Limite: </label>
-  <input name="datetime" type="datetime" required="required" id="datetime">
+  <input name="datetime" type="date" required="required" id="datetime">
   <label for="numMin">Numero mínimo de membros: </label>
   <input name="numMin" type="number" required="required" id="numMin">
   <label for="numMax">Numero maximo de membros: </label>
