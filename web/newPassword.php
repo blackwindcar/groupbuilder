@@ -46,7 +46,7 @@ if(strcasecmp($newPass,$oldPass)==0){
 
 if(strcasecmp($newPass,$_POST["npass2"])!=0){
 	pg_close($conn);
-	header("location: conta.php?pass=passdiferente");
+	header("location: conta.php?pass=npassdiferente");
 	exit;
 }
 
