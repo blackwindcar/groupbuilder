@@ -8,7 +8,6 @@ if (!$conn) {
 }
 
 if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
-		
 		pg_close($conn);
 		header("location: login.php");
 		
@@ -27,11 +26,25 @@ if($_POST["pass"] == null or $_POST["npass"] == null or $_POST["npass2"] == null
 }
 $oldPass = $_POST["pass"];
 $newPass = $_POST["npass"];
+if(strcasecmp($pass,$oldPass)!=0){
+	pg_close($conn);
+	header("location: conta.php?pass=passDiferente");
+}
+if(strcasecmp($newPass,$oldPass)==0){
+	pg_close($conn);
+	header("location: conta.php?pass=passOldigual");
+}
+if(strcasecmp($newPass,$_POST["npass2"])!=0){
+	pg_close($conn);
+	header("location: conta.php?pass=passdiferente");
+}
+
+$sql = "UPDATE \"utilizador\" SET \"pass\" = '$newPass' WHERE \"user\" = '$user'";
+if(pg_query($conn,$sql)){
+	pg_close($conn);
+	header("location: conta.php?pass=success");
+}
+	pg_close($conn);
+	header("location: conta.php?pass=falhou");
+
 ?>
-<html>
-<head>
-</head><body>
-<?php
-	echo("$user</br>$pass</br>$oldPass</br>$newPass")
-	?>
-</body></html>
