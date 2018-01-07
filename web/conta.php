@@ -106,6 +106,16 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
   <label for="numero">Novo numero:</label>
     <input type="text" name="numero" id="numero">
   <input type="submit" name="submit2" id="submit2" value="Enviar">
+	<a><?php 
+		if($_GET["numero"]!=null){
+			if($_GET["numero"]==="erro"){echo("Numero não alterado");}
+			if($_GET["numero"]==="success"){echo("Numero alterado");}
+		}
+		else{
+			echo("");
+		}
+		
+		?></a>
 </form>
 <a href="index.php">voltar</a>
 </body>
