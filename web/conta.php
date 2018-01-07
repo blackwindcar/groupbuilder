@@ -110,6 +110,7 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
 		if($_GET["numero"]!=null){
 			if($_GET["numero"]==="erro"){echo("Numero não alterado");}
 			if($_GET["numero"]==="success"){echo("Numero alterado");}
+			if($_GET["numero"]==="invalido"){echo("Numero inválido");}
 		}
 		else{
 			echo("");

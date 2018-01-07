@@ -24,18 +24,22 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	exit;
 }
 
-if($_POST["nome"] == null){
-	header("location: conta.php?nome=erro");
+if($_POST["numero"] == null){
+	header("location: conta.php?numero=erro");
 	exit;
 }
-$nome = $_POST["nome"];
-$sql = "UPDATE \"utilizador\" SET \"nome\" = '$nome' WHERE \"user\" = '$user'";
+$numero = $_POST["numero"];
+if($numero <= 999999999 or $numero > 9999999999 ){
+	header("location: conta.php?numero=invalido");
+	exit;
+}
+$sql = "UPDATE \"utilizador\" SET \"nuniversidade\" = '$numero' WHERE \"user\" = '$user'";
 if(pg_query($conn,$sql)){
 	pg_close($conn);
-	header("location: conta.php?nome=success");
+	header("location: conta.php?numero=success");
 	exit;
 }
 pg_close($conn);
-header("location: conta.php?nome=erro");
+header("location: conta.php?numero=erro");
 exit;
 ?>
