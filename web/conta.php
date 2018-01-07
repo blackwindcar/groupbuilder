@@ -41,7 +41,7 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
 
 <body>
 <h1><?php echo($_SESSION["utilizador"]); ?></h1>
-<form action="newPassword.php" method="post" name="form1" id="form1">
+<form action="newPassword.php" method="post" name="form1" id="form1" autocomplete="off">
 	<h3>Nova password:</h3>
 	  <label for="pass">Password antiga:</label>
       <input type="password" name="pass" id="pass">

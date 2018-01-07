@@ -8,7 +8,7 @@ if (!$conn) {
 
 if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){	
 		pg_close($conn);
-		header("location: login.php");
+		//header("location: login.php");
 		
 	}
 $user = $_SESSION["utilizador"];
@@ -16,6 +16,6 @@ $pass = $_SESSION["password"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"password\" = '$pass'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
-	header("location: login.php");
+	//header("location: login.php");
 }
 ?>
