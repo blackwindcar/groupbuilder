@@ -50,6 +50,21 @@ $numero = pg_fetch_row(pg_query($conn,$sql))[0];
       <label for="npass2">Repetir password:</label>
       <input type="text" name="npass2" id="npass2">
       <input type="submit" name="submit" id="submit" value="Enviar">
+	<a>
+	<?php
+	if($_GET["pass"]!=null){
+		if($_GET["pass"]==="erro"){echo("Os campos não foram todos preenchidos.");}
+		if($_GET["pass"]==="passDiferente"){echo("A password antiga esta diferente.");}
+		if($_GET["pass"]==="passOldigual"){echo("A nova password tem de ser diferente.");}
+		if($_GET["pass"]==="npassdiferente"){echo("As novas passwords são diferentes");}
+		if($_GET["pass"]==="success"){echo("Password alterada");}
+		if($_GET["pass"]==="falhou"){echo("Password não alterada");}
+	}
+	else{
+		echo("");
+	}
+	?>
+	</a>
 </form>
 <form action="newEmail.php" method="post" name="form2" id="form2">
   <h3>Mudar email:</h3>
