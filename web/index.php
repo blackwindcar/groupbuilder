@@ -43,6 +43,15 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	}
 	?>
 </div>
-
+<div>
+	<?php
+	$sql = "select \"projetonome\" from \"uestap\" where \"utilizadoruser\" = '$user';";
+	$result = pg_query($conn,$sql);
+	while($row = pg_fetch_row($result)){
+		echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
+	}
+	?>
+</div>
+<a href="logout.php">Sair</a>
 </body>
 </html>
