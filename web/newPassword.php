@@ -30,6 +30,6 @@ $new_pass = $_POST["npass"];
 <head>
 </head><body>
 <?php
-	echo("$pass</br>$old_pass</br>$new_pass")
+	echo("$user</br>$pass</br>$old_pass</br>$new_pass")
 	?>
 </body></html>
