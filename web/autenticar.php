@@ -17,6 +17,8 @@ $pass = $_POST["pass"];
 $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"pass\" = '$pass'";
 
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
+	session_unset(); 
+	session_destroy();
 	pg_close($conn);
 	header("location: login.php?msn=Credenciais+erradas");
 }

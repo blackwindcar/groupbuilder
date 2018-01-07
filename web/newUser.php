@@ -24,10 +24,13 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	header('Location: registar.php?msn=Utilizador+ja+existe');
 }
 
-$sql = "INSERT INTO \"utilizador\"(\"user\", \"password\", \"email\", \"nome\", \"nUniversidade\", \"tipo\") VALUES ('$user', '$pass', '$email', '$nome','$numero', '$tipo')";
+$sql = "INSERT INTO \"utilizador\"(\"user\", \"pass\", \"email\", \"nome\", \"nUniversidade\", \"tipo\") VALUES ('$user', '$pass', '$email', '$nome','$numero', '$tipo')";
+echo($sql);
 pg_query($conn,$sql);
 pg_close($conn);
 $_SESSION["utilizador"] = $user;
 $_SESSION["password"] = $pass;
+/*
 header('Location: index.php');
+*/
 ?>
