@@ -55,6 +55,7 @@ $sql = "UPDATE \"utilizador\" SET \"pass\" = '$newPass' WHERE \"user\" = '$user'
 if(pg_query($conn,$sql)){
 	pg_close($conn);
 	header("location: conta.php?pass=success");
+	$_SESSION["password"] = $newPass;
 	exit;
 }else{
 	pg_close($conn);
