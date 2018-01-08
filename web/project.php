@@ -31,7 +31,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 </head>
 
 <body>
-
+<a href="index.php">Voltar</a>
 <a href="logout.php">Sair</a>
 </body>
 </html>
