@@ -60,7 +60,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
   <div>
 			<h2><?php echo($row[0]) ?></h2>
 			<?php
-			if($row[0]==null){
+			if($row[1]==null){
 			?>
 	<h3>Sem Grupo</h3>
 	  <a href="project.php?nome=<?php echo($row[0])?>">Associar a um grupo</a>
