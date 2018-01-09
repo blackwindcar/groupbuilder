@@ -76,7 +76,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 				<?php
 					$sql = "select nome,nuniversidade,dataentradagrupo from \"uestap\",\"utilizador\" where uestap.utilizadoruser = utilizador.user and \"projetonome\" = '$nome' and \"grupoid\" = '".$row[0]."'";
 					$result1 = pg_query($conn,$sql);
-					while($row2 = pg_fetch_row($result)){
+					while($row2 = pg_fetch_row($result1)){
 				?>
 					<p><?php echo($row2[0]."-".$row2[1]."-".$row2[2]);?></p>
 				
