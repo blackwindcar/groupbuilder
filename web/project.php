@@ -88,7 +88,15 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 		}				 
 	?>
 	<a>Lista de pessoas sem grupo: </a>
-	<?php ?>
+	<?php 
+		$sql = "select nome,nuniversidade from \"uestap\",\"utilizador\" where \"user\" = \"utilizadoruser\" and \"projetonome\" = '$nome' and \"grupoid\" is null";
+		$result = pg_query($conn,$sql);
+		while($row = pg_fetch_row($result)){
+		?>
+		<p><?php echo($row[0]."-".$row[1]);?></p>
+	<?php
+		}
+	?>
 </div>
 <?php }?>
 <?php if($grupo){?>
