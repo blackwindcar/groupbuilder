@@ -85,11 +85,11 @@ else{
 				<p>Administrador: <?php echo($row1[0]."-".$row1[1]);?></p>
 				<p>Membros: </p>
 				<?php
-					$sql = "select nome,nuniversidade,dataentradagrupo from \"uestap\",\"utilizador\" where uestap.utilizadoruser = utilizador.user and \"projetonome\" = '$nome' and \"grupoid\" = '".$row[0]."'";
+					$sql = "select nome,nuniversidade,dataentradagrupo,email from \"uestap\",\"utilizador\" where uestap.utilizadoruser = utilizador.user and \"projetonome\" = '$nome' and \"grupoid\" = '".$row[0]."'";
 					$result1 = pg_query($conn,$sql);
 					while($row2 = pg_fetch_row($result1)){
 				?>
-					<p><?php echo($row2[0]."-".$row2[1]."-".$row2[2]);?></p>
+					<p><?php echo($row2[0]."-".$row2[1]."-".$row2[2]."-".$row2[3]);?></p>
 				
 				<?php }?>
 			
@@ -112,7 +112,46 @@ else{
 <a href="#">Terminar formação de grupos</a>
 <?php }?>
 <?php if($grupo){?>
+	<a>Lista de pessoas sem grupo: </a>
+	<?php 
+		$sql = "select nome,nuniversidade from \"uestap\",\"utilizador\" where \"user\" = \"utilizadoruser\" and \"projetonome\" = '$nome' and \"grupoid\" is null";
+		$result = pg_query($conn,$sql);
+		while($row = pg_fetch_row($result)){
+		?>
+		<p><?php echo($row[0]."-".$row[1]);?> <a href="#">Convidar</a></p>
+	<?php
+		}
+	?>
 <?php }else{?>
+<a>Lista de grupos: </a>
+	<?php 
+		$sql = "select id,nome,projetoadmin from \"grupo\" where \"projetonome\" = '$nome'";
+		$result = pg_query($conn,$sql);
+		while($row = pg_fetch_row($result)){
+			$adminp =$row[2];
+			$sql = "select nome,nuniversidade from \"utilizador\" where \"user\" = '$adminp'";
+			$row1 = pg_fetch_row(pg_query($conn,$sql));
+			?>
+			<div>
+				<p>Nome: <?php echo($row[1]);?></p>
+				<p>id: <?php echo($row[0]);?></p>
+				<p>Administrador: <?php echo($row1[0]."-".$row1[1]);?></p>
+				<p><a href="#">Juntar</a></p>
+				<p>Membros: </p>
+				<?php
+					$sql = "select nome,nuniversidade,dataentradagrupo,email from \"uestap\",\"utilizador\" where uestap.utilizadoruser = utilizador.user and \"projetonome\" = '$nome' and \"grupoid\" = '".$row[0]."'";
+					$result1 = pg_query($conn,$sql);
+					while($row2 = pg_fetch_row($result1)){
+				?>
+					<p><?php echo($row2[0]."-".$row2[1]."-".$row2[2]."-".$row2[3]);?></p>
+				
+				<?php }?>
+			
+			</div>
+			<?php
+			
+		}				 
+	?>
 <?php }?>
 </body>
 </html>
