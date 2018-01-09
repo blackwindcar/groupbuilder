@@ -22,6 +22,20 @@ $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"passw
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
 	header("location: login.php");
+	exit;
+}
+if($_GET["nome"]==null){
+	pg_close($conn);
+	header("location: index.php");
+	exit;
+}
+$nome = $_GET["nome"];
+
+$sql = "select count(*) from \"projeto\" where \"nome\" = '$nome' and \"admin\" = '$user'";
+if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
+	$administrador = false;
+}else{
+	$administrador = true;
 }
 ?>
 <html>
@@ -31,6 +45,8 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 </head>
 
 <body>
+<?php if($administrador){echo("Administrador");}else{echo("Não administrador");}?>
+<a href="conta.php"><?php echo($user); ?></a>
 <a href="index.php">Voltar</a>
 <a href="logout.php">Sair</a>
 </body>
