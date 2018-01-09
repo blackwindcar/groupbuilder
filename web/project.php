@@ -52,10 +52,47 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 </head>
 
 <body>
-<?php if($grupo){echo("Com grupo");}else{echo("Sem grupo");} ?>
-<?php if($administrador){echo("Administrador");}else{echo("Não administrador");}?>
 <a href="conta.php"><?php echo($user); ?></a>
 <a href="index.php">Voltar</a>
 <a href="logout.php">Sair</a>
+<?php if($administrador){?>
+<div>
+	<a>Numero de grupos: </a>
+	<a>Numero de pessoas sem grupo: </a>
+	<a>Lista de grupos: </a>
+	<?php 
+		$sql = "select id,nome,projetoadmin from \"grupo\" where \"projetonome\" = '$nome'";
+		$result = pg_query($conn,$sql);
+		while($row = pg_fetch_row($result)){
+			$adminp =$row[2];
+			$sql = "select nome,nuniversidade from \"utilizador\" where \"user\" = '$adminp'";
+			$row1 = pg_fetch_row(pg_query($conn,$sql));
+			?>
+			<div>
+				<p>Nome: <?php echo($row[1]);?></p>
+				<p>id: <?php echo($row[0]);?></p>
+				<p>Administrador: <?php echo($row1[0]."-".$row1[1]);?></p>
+				<p>Membros: </p>
+				<?php
+					$sql = "select nome,nuniversidade,dataentradagrupo from \"uestap\",\"utilizador\" where uestap.utilizadoruser = utilizador.user and \"projetonome\" = '$nome' and \"grupoid\" = '".$row[0]."'";
+					$result1 = pg_query($conn,$sql);
+					while($row2 = pg_fetch_row($result)){
+				?>
+					<p><?php echo($row2[0]."-".$row2[1]."-".$row2[2]);?></p>
+				
+				<?php }?>
+			
+			</div>
+			<?php
+			
+		}				 
+	?>
+	<a>Lista de pessoas sem grupo: </a>
+	<?php ?>
+</div>
+<?php }?>
+<?php if($grupo){?>
+<?php }else{?>
+<?php }?>
 </body>
 </html>
