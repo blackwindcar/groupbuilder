@@ -45,7 +45,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	$grupo = false;
 }
 
-$sql = "select count(*) from projeto where nome = '$teste' and current_timestamp < tempofinal";
+$sql = "select count(*) from projeto where nome = '$nome' and to_timestamp(to_char(current_timestamp,'yyyy/mm/dd'),'yyyy/mm/dd')<tempofinal";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	$sql = "select TO_CHAR(tempofinal,'dd/mm/yyyy') from projeto where nome = '$nome'";
 	$tempo = pg_fetch_row(pg_query($conn,$sql))[0];
