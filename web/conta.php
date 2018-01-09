@@ -24,13 +24,13 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	header("location: login.php");
 }
 
-$sql = "select \"email\" from \"utilizador\" where \"user\" = 'admin'";
+$sql = "select \"email\" from \"utilizador\" where \"user\" = '$user'";
 $email = pg_fetch_row(pg_query($conn,$sql))[0];
 
-$sql = "select \"nome\" from \"utilizador\" where \"user\" = 'admin'";
+$sql = "select \"nome\" from \"utilizador\" where \"user\" = '$user'";
 $nome = pg_fetch_row(pg_query($conn,$sql))[0];
 
-$sql = "select \"nuniversidade\" from \"utilizador\" where \"user\" = 'admin'";
+$sql = "select \"nuniversidade\" from \"utilizador\" where \"user\" = '$user'";
 $numero = pg_fetch_row(pg_query($conn,$sql))[0];
 ?>
 <html>

@@ -44,6 +44,16 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 }else{
 	$grupo = false;
 }
+
+$sql = "select count(*) from projeto where nome = '$teste' and current_timestamp < tempofinal";
+if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
+	$sql = "select TO_CHAR(tempofinal,'dd/mm/yyyy') from projeto where nome = '$nome'";
+	$tempo = pg_fetch_row(pg_query($conn,$sql))[0];
+}
+else{
+	$tempo = "Terminou";
+}
+
 ?>
 <html>
 <head>
@@ -55,6 +65,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 <a href="conta.php"><?php echo($user); ?></a>
 <a href="index.php">Voltar</a>
 <a href="logout.php">Sair</a>
+<a>Data de termino: <?php echo($tempo);?></a>
 <?php if($administrador){?>
 <div>
 	<a>Numero de grupos: </a>
@@ -98,6 +109,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 		}
 	?>
 </div>
+<a href="#">Terminar formação de grupos</a>
 <?php }?>
 <?php if($grupo){?>
 <?php }else{?>
