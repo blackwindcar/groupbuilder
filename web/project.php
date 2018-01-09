@@ -36,13 +36,13 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	$administrador = true;
 }else{
 	$administrador = false;
-	$sql = "select count(*) from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$user' and grupo.projetonome = '$nome'";
-	echo($sql);
-	if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
-		$grupo = true;
-	}else{
-		$grupo = false;
-	}
+
+}
+$sql = "select count(*) from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$user' and grupo.projetonome = '$nome'";
+if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
+	$grupo = true;
+}else{
+	$grupo = false;
 }
 ?>
 <html>
@@ -52,7 +52,6 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 </head>
 
 <body>
-<?php echo("$sql</br>")?>
 <?php if($grupo){echo("Com grupo");}else{echo("Sem grupo");} ?>
 <?php if($administrador){echo("Administrador");}else{echo("Não administrador");}?>
 <a href="conta.php"><?php echo($user); ?></a>
