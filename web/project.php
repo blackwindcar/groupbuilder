@@ -52,6 +52,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 </head>
 
 <body>
+<?php echo("$sql</br>")?>
 <?php if($grupo){echo("Com grupo");}else{echo("Sem grupo");} ?>
 <?php if($administrador){echo("Administrador");}else{echo("Não administrador");}?>
 <a href="conta.php"><?php echo($user); ?></a>
