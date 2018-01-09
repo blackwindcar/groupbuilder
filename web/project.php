@@ -36,7 +36,8 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	$administrador = true;
 }else{
 	$administrador = false;
-	$sql = "select count(*) from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$user'";
+	$sql = "select count(*) from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$user' and grupo.projetonome = '$nome'";
+	echo($sql);
 	if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 		$grupo = true;
 	}else{
