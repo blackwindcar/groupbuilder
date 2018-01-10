@@ -137,7 +137,7 @@ else{
 				<p>Nome: <?php echo($row[1]);?></p>
 				<p>id: <?php echo($row[0]);?></p>
 				<p>Administrador: <?php echo($row1[0]."-".$row1[1]);?></p>
-				<p><a href="#">Juntar</a></p>
+				<p><a href="juntar.php?nome=$nome&id=".$row[0]>Juntar</a></p>
 				<p>Membros: </p>
 				<?php
 					$sql = "select nome,nuniversidade,dataentradagrupo,email from \"uestap\",\"utilizador\" where uestap.utilizadoruser = utilizador.user and \"projetonome\" = '$nome' and \"grupoid\" = '".$row[0]."'";
