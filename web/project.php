@@ -44,6 +44,12 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 }else{
 	$grupo = false;
 }
+$sql = "select count(*) from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$user' and grupo.projetonome = '$nome and grupo.projetoadmin = '$user'";
+if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
+	$grupoAdmin = true;
+}else{
+	$grupoAdmin = false;
+}
 
 $sql = "select count(*) from projeto where nome = '$nome' and to_timestamp(to_char(current_timestamp,'yyyy/mm/dd'),'yyyy/mm/dd')<tempofinal";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
@@ -112,13 +118,15 @@ else{
 <a href="#">Terminar formação de grupos</a>
 <?php }?>
 <?php if($grupo){?>
+	<p>Lista de pedidos:</p>
+	
 	<a>Lista de pessoas sem grupo: </a>
 	<?php 
 		$sql = "select nome,nuniversidade,utilizador.user from \"uestap\",\"utilizador\" where \"user\" = \"utilizadoruser\" and \"projetonome\" = '$nome' and \"grupoid\" is null";
 		$result = pg_query($conn,$sql);
 		while($row = pg_fetch_row($result)){
 		?>
-		<p><?php echo($row[0]."-".$row[1]);d?> <a href="convidar.php?nome=<?php echo($nome."&id=".$row[0]."&pessoa=".$row[2]);?>">Convidar</a></p>
+		<p><?php echo($row[0]."-".$row[1]);?><?php if($grupoAdmin){?> <a href="convidar.php?nome=<?php echo($nome."&id=".$row[0]."&pessoa=".$row[2]);?>">Convidar</a><?php }?></p>
 	<?php
 		}
 	?>

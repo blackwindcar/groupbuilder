@@ -34,7 +34,7 @@ $nome = $_GET["nome"];
 $idgroup = $_GET["id"];
 $pessoa = $_GET["pessoa"];
 
-$sql = "select count(*) from convite where convida = '$user' and projetonome = '$nome' and tipo = 'convidar' and convidado='$pessoa'";
+$sql = "select count(*) from convite where convida = '$user' and projetonome = '$nome' and tipo = 'convidar' and convidado='$pessoa' and valido='valido'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	
 	$sql = "INSERT INTO convite(id, tipo, Projetonome, Convida, Convidado,valido) VALUES (nextval('idconvite'), 'convidar', '$nome', '$user', '$pessoa','valido')";

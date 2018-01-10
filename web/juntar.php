@@ -33,7 +33,7 @@ if($_GET["nome"]==null or $_GET["id"]==null){
 $nome = $_GET["nome"];
 $idgroup = $_GET["id"];
 
-$sql = "select count(*) from convite where convidado = '$user' and projetonome = '$nome' and tipo='juntar'";
+$sql = "select count(*) from convite where convidado = '$user' and projetonome = '$nome' and tipo='juntar' and valido = 'valido'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	$sql = "select projetoadmin from projeto,grupo where projetonome = '$nome' and projeto.nome = projetonome and id = '$idgroup'";
 	$administradorgrupo = pg_fetch_row(pg_query($conn,$sql))[0];
