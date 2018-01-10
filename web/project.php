@@ -45,7 +45,6 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	$grupo = false;
 }
 $sql = "select count(*) from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$user' and grupo.projetonome = '$nome' and grupo.projetoadmin = '$user'";
-echo($sql);
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	$grupoAdmin = true;
 }else{
@@ -120,7 +119,13 @@ else{
 <?php }?>
 <?php if($grupo){?>
 	<p>Lista de pedidos:</p>
-	
+	<?php 
+		$sql = "select convidado,nome,nuniversidade from convite,utilizador where projetonome='$nome' and valido='valido' and convite.tipo='juntar' and convidado = \"user\"";
+		$result = pg_query($conn,$sql);
+		while($row = pg_fetch_row($result)){ 
+	?>
+		<p><?php echo(row[1]." - ".row[2]);?> <a href="#">aceitar</a></p>
+	<?php }?>
 	<a>Lista de pessoas sem grupo: </a>
 	<?php 
 		$sql = "select nome,nuniversidade,utilizador.user from \"uestap\",\"utilizador\" where \"user\" = \"utilizadoruser\" and \"projetonome\" = '$nome' and \"grupoid\" is null";
@@ -133,6 +138,14 @@ else{
 	?>
 	<p><a href="sairgrupo.php?nome=<?php echo($nome);?>">Sair do grupo</a></p>
 <?php }else{?>
+<p>Lista de pedidos para juntar:</p>
+	<?php 
+		$sql = "select convidado,nome,nuniversidade from convite,utilizador where projetonome='$nome' and valido='valido' and convite.tipo='convidar' and convidado = \"user\"";
+		$result = pg_query($conn,$sql);
+		while($row = pg_fetch_row($result)){ 
+	?>
+		<p><?php echo(row[1]." - ".row[2]);?> <a href="#">aceitar</a></p>
+	<?php }?>
 <a>Lista de grupos: </a>
 	<?php 
 		$sql = "select id,nome,projetoadmin from \"grupo\" where \"projetonome\" = '$nome'";
