@@ -118,7 +118,7 @@ else{
 		$result = pg_query($conn,$sql);
 		while($row = pg_fetch_row($result)){
 		?>
-		<p><?php echo($row[0]."-".$row[1]);?> <a href="#">Convidar</a></p>
+		<p><?php echo($row[0]."-".$row[1]);?> <a href="convidar.php?nome=<?php echo($nome."&id=".$row[0]);?>">Convidar</a></p>
 	<?php
 		}
 	?>
