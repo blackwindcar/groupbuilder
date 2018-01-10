@@ -114,11 +114,11 @@ else{
 <?php if($grupo){?>
 	<a>Lista de pessoas sem grupo: </a>
 	<?php 
-		$sql = "select nome,nuniversidade from \"uestap\",\"utilizador\" where \"user\" = \"utilizadoruser\" and \"projetonome\" = '$nome' and \"grupoid\" is null";
+		$sql = "select nome,nuniversidade,user from \"uestap\",\"utilizador\" where \"user\" = \"utilizadoruser\" and \"projetonome\" = '$nome' and \"grupoid\" is null";
 		$result = pg_query($conn,$sql);
 		while($row = pg_fetch_row($result)){
 		?>
-		<p><?php echo($row[0]."-".$row[1]);?> <a href="convidar.php?nome=<?php echo($nome."&id=".$row[0]);?>">Convidar</a></p>
+		<p><?php echo($row[0]."-".$row[1]);d?> <a href="convidar.php?nome=<?php echo($nome."&id=".$row[0]."&pessoa=".$row[2]);?>">Convidar</a></p>
 	<?php
 		}
 	?>

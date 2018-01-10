@@ -25,20 +25,19 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	exit;
 }
 
-if($_GET["nome"]==null or $_GET["id"]==null){
+if($_GET["nome"]==null or $_GET["id"]==null or $_GET["pessoa"]==null){
 	pg_close($conn);
 	header("location: index.php");
 	exit;
 }
 $nome = $_GET["nome"];
 $idgroup = $_GET["id"];
+$pessoa = $_GET["pessoa"];
 
 $sql = "select count(*) from convite where convidado = '$user' and projetonome = '$nome' and tipo = 'convidar'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
-	$sql = "select projetoadmin from projeto,grupo where projetonome = '$nome' and projeto.nome = projetonome and id = '$idgroup'";
-	$administradorgrupo = pg_fetch_row(pg_query($conn,$sql))[0];
 	
-	$sql = "INSERT INTO convite(id, tipo, Projetonome, Convida, Convidado,valido) VALUES (nextval('idconvite'), 'convidar', '$nome', '$administradorgrupo', '$user','valido')";
+	$sql = "INSERT INTO convite(id, tipo, Projetonome, Convida, Convidado,valido) VALUES (nextval('idconvite'), 'convidar', '$nome', '$user', '$pessoa','valido')";
 	pg_query($conn,$sql);
 	
 }
