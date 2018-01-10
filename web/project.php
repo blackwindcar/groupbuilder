@@ -81,7 +81,7 @@ else{
 			?>
 			<div>
 				<p>Nome: <?php echo($row[1]);?></p>
-				<p>id: <?php echo($row[0]);?></p>
+			  <p>id: <?php echo($row[0]);?></p>
 				<p>Administrador: <?php echo($row1[0]."-".$row1[1]);?></p>
 				<p>Membros: </p>
 				<?php
@@ -122,7 +122,7 @@ else{
 	<?php
 		}
 	?>
-	<p><a href="#">Sair do grupo</a></p>
+	<p><a href="sairgrupo.php?nome=<?php echo($nome);?>">Sair do grupo</a></p>
 <?php }else{?>
 <a>Lista de grupos: </a>
 	<?php 
@@ -133,7 +133,7 @@ else{
 			$sql = "select nome,nuniversidade from \"utilizador\" where \"user\" = '$adminp'";
 			$row1 = pg_fetch_row(pg_query($conn,$sql));
 			?>
-			<div>
+<div>
 				<p>Nome: <?php echo($row[1]);?></p>
 				<p>id: <?php echo($row[0]);?></p>
 				<p>Administrador: <?php echo($row1[0]."-".$row1[1]);?></p>
@@ -153,7 +153,12 @@ else{
 			
 		}				 
 	?>
-	<p><a href="#">Criar um grupo</a></p>
+	<form action="criargrupo.php?nome=<?php echo($nome);?>" method="post" name="form1" id="form1">
+	  <label for="nome">Nome do grupo:</label>
+      <input type="text" name="nome" id="nome">
+      <input type="submit" name="submit" id="submit" value="Criar Grupo">
+</form>
+	
 <?php }?>
 </body>
 </html>
