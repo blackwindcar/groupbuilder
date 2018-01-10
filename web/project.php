@@ -114,7 +114,7 @@ else{
 <?php if($grupo){?>
 	<a>Lista de pessoas sem grupo: </a>
 	<?php 
-		$sql = "select nome,nuniversidade,user from \"uestap\",\"utilizador\" where \"user\" = \"utilizadoruser\" and \"projetonome\" = '$nome' and \"grupoid\" is null";
+		$sql = "select nome,nuniversidade,utilizador.user from \"uestap\",\"utilizador\" where \"user\" = \"utilizadoruser\" and \"projetonome\" = '$nome' and \"grupoid\" is null";
 		$result = pg_query($conn,$sql);
 		while($row = pg_fetch_row($result)){
 		?>
