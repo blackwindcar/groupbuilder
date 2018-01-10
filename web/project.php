@@ -122,6 +122,7 @@ else{
 	<?php
 		}
 	?>
+	<p><a href="#">Sair do grupo</a></p>
 <?php }else{?>
 <a>Lista de grupos: </a>
 	<?php 
@@ -152,6 +153,7 @@ else{
 			
 		}				 
 	?>
+	<p><a href="#">Criar um grupo</a></p>
 <?php }?>
 </body>
 </html>
