@@ -41,6 +41,8 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 $sql = "select count(*) from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$user' and grupo.projetonome = '$nome'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 	$grupo = true;
+	$sql = "select grupo.\"id\" from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$user' and grupo.projetonome = '$nome'";
+	$idgrupo = pg_fetch_row(pg_query($conn,$sql))[0];
 }else{
 	$grupo = false;
 }
@@ -59,6 +61,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="1"){
 else{
 	$tempo = "Terminou";
 }
+ 
 
 ?>
 <html>
@@ -135,7 +138,26 @@ else{
 		<p><?php echo($row[0]."-".$row[1]);?><?php if($grupoAdmin){?> <a href="convidar.php?nome=<?php echo($nome."&id=".$row[0]."&pessoa=".$row[2]);?>">Convidar</a><?php }?></p>
 	<?php
 		}
+		$sql = "select nome,projetoadmin from grupo where \"id\" = 112 and projetonome = '$nome'";
+		$projetodados = pg_fetch_row ( pg_query($conn,$sql));
+		$sql = "select nome,nuniversidade,email from utilizador where \"user\"='".$projetodados[1]."'";
+		$admingrupodados = pg_fetch_row ( pg_query($conn,$sql));
 	?>
+	<p>Informações sobre o grupo: <?php echo($projetodados[0]);?></p>
+	<p>Administrador: <?php echo($admingrupodados[0]." - ".$admingrupodados[1]." - ".$admingrupodados[2]);?></p>
+	<p>Membros: </p>
+	<?php 
+		$sql = "select nome,nuniversidade,email,to_char(dataentradagrupo,'dd/mm/yyyy hh:mi') from utilizador,uestap where utilizadoruser=\"user\" and projetonome='$nome' order by dataentradagrupo asc";
+		$dadosmembros = pg_query($conn,$sql);
+		while($rowmembros = pg_fetch_row($result)){
+	?>
+	<p>
+		<a><?php echo($rowmembros[0]);?></a>
+		<a><?php echo($rowmembros[1]);?></a> 
+		<a><?php echo($rowmembros[2]);?></a>
+		<a><?php echo($rowmembros[3]);?></a>
+	</p>
+	<?php } ?>
 	<p><a href="sairgrupo.php?nome=<?php echo($nome);?>">Sair do grupo</a></p>
 <?php }else{?>
 <p>Lista de pedidos para juntar:</p>
