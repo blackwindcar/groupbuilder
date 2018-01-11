@@ -138,7 +138,7 @@ else{
 		<p><?php echo($row[0]."-".$row[1]);?><?php if($grupoAdmin){?> <a href="convidar.php?nome=<?php echo($nome."&id=".$row[0]."&pessoa=".$row[2]);?>">Convidar</a><?php }?></p>
 	<?php
 		}
-		$sql = "select nome,projetoadmin from grupo where \"id\" = 112 and projetonome = '$nome'";
+		$sql = "select nome,projetoadmin from grupo where \"id\" = '$idgrupo' and projetonome = '$nome'";
 		echo($sql);
 		$projetodados = pg_fetch_row ( pg_query($conn,$sql));
 		$sql = "select nome,nuniversidade,email from utilizador where \"user\"='".$projetodados[1]."'";
