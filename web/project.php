@@ -120,15 +120,16 @@ else{
 </div>
 <a href="#">Terminar formação de grupos</a>
 <?php }?>
-<?php if($grupo){?>
+<?php if($grupo){if($grupoAdmin){?>
 	<p>Lista de pedidos:</p>
 	<?php 
+		
 		$sql = "select convidado,nome,nuniversidade from convite,utilizador where projetonome='$nome' and valido='valido' and convite.tipo='juntar' and convidado = \"user\"";
 		$result = pg_query($conn,$sql);
 		while($row4 = pg_fetch_row($result)){ 
 	?>
 		<p><?php echo($row4[1]." - ".$row4[2]);?> <a href="#">aceitar</a></p>
-	<?php }?>
+	<?php }}?>
 	<a>Lista de pessoas sem grupo: </a>
 	<?php 
 		$sql = "select nome,nuniversidade,utilizador.user from \"uestap\",\"utilizador\" where \"user\" = \"utilizadoruser\" and \"projetonome\" = '$nome' and \"grupoid\" is null";
