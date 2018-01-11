@@ -24,26 +24,26 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	header("location: login.php");
 	exit;
 }
-if($_GET["nome"]==null and $_GET["convidado"]==null){
+if($_GET["nome"]==null and $_GET["convida"]==null){
 	pg_close($conn);
 	header("location: index.php");
 	exit;
 }
 $nome = $_GET["nome"];
-$convidado = $_GET["convidado"];
+$convida = $_GET["convida"];
 
-$sql = "select grupo.\"id\" from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$user' and grupo.projetonome = '$nome'";
+$sql = "select grupo.\"id\" from \"grupo\",\"uestap\" where \"grupoid\" = \"id\" and \"utilizadoruser\" = '$convida' and grupo.projetonome = '$nome'";
 $idgrupo = pg_fetch_row(pg_query($conn,$sql))[0];
 
-$sql = "select (nmaxmembros<membros.numero) as cheio from grupo,projeto,(select count(*)+1 as numero from grupo,uestap where \"id\"=grupoid and grupo.projetonome='$nome') as membros where grupo.projetonome = projeto.nome and projeto.nome='$nome'";
+$sql = "select (nmaxmembros<membros.numero) as cheio from grupo,projeto,(select count(*)+1 as numero from grupo,uestap where \"id\"=grupoid and \"id\"= $idgrupo and grupo.projetonome='$nome') as membros where grupo.projetonome = projeto.nome and projeto.nome='$nome'";
 if(pg_fetch_row(pg_query($conn,$sql))[0]){
-	$sql = "update convite set valido = 'invalido' where convidado = '$convidado' and projetonome = '$nome'";
+	$sql = "update convite set valido = 'invalido' where convidado = '$user' and projetonome = '$nome'";
 	pg_query($conn,$sql);
 	header("location: project.php?nome=$nome&msn=grupocheio");
 	exit;
 }
 	
-$sql = "update convite set valido = 'invalido' where convidado = '$convidado' and projetonome = '$nome';UPDATE UEstaP SET Grupoid = '$idgrupo', GrupoProjetoAdmin = '$user', dataEntradaGrupo = current_timestamp WHERE Utilizadoruser = '$convidado' AND Projetonome = '$nome'";
+$sql = "update convite set valido = 'invalido' where convidado = '$user' and projetonome = '$nome';UPDATE UEstaP SET Grupoid = '$idgrupo', GrupoProjetoAdmin = '$convida', dataEntradaGrupo = current_timestamp WHERE Utilizadoruser = '$user' AND Projetonome = '$nome'";
 pg_query($conn,$sql);
 header("location: project.php?nome=$nome");
 exit;

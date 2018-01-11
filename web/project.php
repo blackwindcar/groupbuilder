@@ -163,11 +163,11 @@ else{
 <?php }else{?>
 		<p>Lista de pedidos para juntar:</p>
 		<?php 
-			$sql = "select convidado,nome,nuniversidade from convite,utilizador where projetonome='$nome' and valido='valido' and convite.tipo='convidar' and convidado = \"user\"";
+			$sql = "select convida,nome,nuniversidade from convite,utilizador where projetonome='$nome' and valido='valido' and convite.tipo='convidar' and convidado = \"user\"";
 			$result = pg_query($conn,$sql);
 			while($row = pg_fetch_row($result)){ 
 		?>
-			<p><?php echo($row[1]." - ".$row[2]);?> <a href="#">aceitar</a></p>
+			<p><?php echo($row[1]." - ".$row[2]);?> <a href="convidaraceitar.php?nome =<?php echo($nome."&convida=".$row[0] ); ?>">aceitar</a></p>
 		<?php }?>
 			<a>Lista de grupos: </a>
 		<?php 
