@@ -139,10 +139,8 @@ else{
 	<?php
 		}
 		$sql = "select nome,projetoadmin from grupo where \"id\" = '$idgrupo' and projetonome = '$nome'";
-		echo($sql);
 		$projetodados = pg_fetch_row ( pg_query($conn,$sql));
 		$sql = "select nome,nuniversidade,email from utilizador where \"user\"='".$projetodados[1]."'";
-		echo($sql);
 		$admingrupodados = pg_fetch_row ( pg_query($conn,$sql));
 	?>
 	<p>Informações sobre o grupo: <?php echo($projetodados[0]);?></p>
@@ -150,9 +148,8 @@ else{
 	<p>Membros: </p>
 	<?php 
 		$sql = "select nome,nuniversidade,email,to_char(dataentradagrupo,'dd/mm/yyyy hh:mi') from utilizador,uestap where utilizadoruser=\"user\" and projetonome='$nome' order by dataentradagrupo asc";
-		echo($sql);
 		$dadosmembros = pg_query($conn,$sql);
-		while($rowmembros = pg_fetch_row($result)){
+		while($rowmembros = pg_fetch_row($dadosmembros)){
 	?>
 	<p>
 		<a><?php echo($rowmembros[0]);?></a>
