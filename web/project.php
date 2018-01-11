@@ -121,11 +121,10 @@ else{
 	<p>Lista de pedidos:</p>
 	<?php 
 		$sql = "select convidado,nome,nuniversidade from convite,utilizador where projetonome='$nome' and valido='valido' and convite.tipo='juntar' and convidado = \"user\"";
-	echo($sql);
 		$result = pg_query($conn,$sql);
 		while($row = pg_fetch_row($result)){ 
 	?>
-		<p><?php echo(row[1]." - ".row[2]);?> <a href="#">aceitar</a></p>
+		<p><?php echo($row[1]." - ".$row[2]);?> <a href="#">aceitar</a></p>
 	<?php }?>
 	<a>Lista de pessoas sem grupo: </a>
 	<?php 
@@ -142,11 +141,10 @@ else{
 <p>Lista de pedidos para juntar:</p>
 	<?php 
 		$sql = "select convidado,nome,nuniversidade from convite,utilizador where projetonome='$nome' and valido='valido' and convite.tipo='convidar' and convidado = \"user\"";
-		echo($sql);
 		$result = pg_query($conn,$sql);
 		while($row = pg_fetch_row($result)){ 
 	?>
-		<p><?php echo(row[1]." - ".row[2]);?> <a href="#">aceitar</a></p>
+		<p><?php echo($row[1]." - ".$row[2]);?> <a href="#">aceitar</a></p>
 	<?php }?>
 <a>Lista de grupos: </a>
 	<?php 
