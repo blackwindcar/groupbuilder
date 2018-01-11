@@ -128,7 +128,7 @@ else{
 		$result = pg_query($conn,$sql);
 		while($row4 = pg_fetch_row($result)){ 
 	?>
-		<p><?php echo($row4[1]." - ".$row4[2]);?> <a href="#">aceitar</a></p>
+		<p><?php echo($row4[1]." - ".$row4[2]);?> <a href="juntaraceitar.php?nome=<?php echo($nome."&convidado=".$row[0]);?>">aceitar</a></p>
 	<?php }}?>
 	<a>Lista de pessoas sem grupo: </a>
 	<?php 
@@ -167,7 +167,7 @@ else{
 			$result = pg_query($conn,$sql);
 			while($row = pg_fetch_row($result)){ 
 		?>
-			<p><?php echo($row[1]." - ".$row[2]);?> <a href="juntaraceitar.php?nome=<?php echo($nome."&convidado=".$row[0]);?>">aceitar</a></p>
+			<p><?php echo($row[1]." - ".$row[2]);?> <a href="#">aceitar</a></p>
 		<?php }?>
 			<a>Lista de grupos: </a>
 		<?php 
