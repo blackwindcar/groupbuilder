@@ -24,7 +24,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	header("location: login.php");
 	exit;
 }
-if($_GET["nome"]==null and $_GET["convida"]==null){
+if($_GET["nome"]==null or $_GET["convida"]==null){
 	pg_close($conn);
 	header("location: index.php");
 	exit;
