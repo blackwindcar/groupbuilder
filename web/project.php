@@ -160,48 +160,48 @@ else{
 	<?php } ?>
 	<p><a href="sairgrupo.php?nome=<?php echo($nome);?>">Sair do grupo</a></p>
 <?php }else{?>
-<p>Lista de pedidos para juntar:</p>
-	<?php 
-		$sql = "select convidado,nome,nuniversidade from convite,utilizador where projetonome='$nome' and valido='valido' and convite.tipo='convidar' and convidado = \"user\"";
-		$result = pg_query($conn,$sql);
-		while($row = pg_fetch_row($result)){ 
-	?>
-		<p><?php echo($row[1]." - ".$row[2]);?> <a href="#">aceitar</a></p>
-	<?php }?>
-<a>Lista de grupos: </a>
-	<?php 
-		$sql = "select id,nome,projetoadmin from \"grupo\" where \"projetonome\" = '$nome'";
-		$result = pg_query($conn,$sql);
-		while($row = pg_fetch_row($result)){
-			$adminp =$row[2];
-			$sql = "select nome,nuniversidade from \"utilizador\" where \"user\" = '$adminp'";
-			$row1 = pg_fetch_row(pg_query($conn,$sql));
-			?>
-<div>
-				<p>Nome: <?php echo($row[1]);?></p>
-				<p>id: <?php echo($row[0]);?></p>
-				<p>Administrador: <?php echo($row1[0]."-".$row1[1]);?></p>
-				<p><a href="juntar.php?nome=<?php echo($nome."&id=".$row[0]);?>">Juntar</a></p>
-				<p>Membros: </p>
-				<?php
-					$sql = "select nome,nuniversidade,dataentradagrupo,email from \"uestap\",\"utilizador\" where uestap.utilizadoruser = utilizador.user and \"projetonome\" = '$nome' and \"grupoid\" = '".$row[0]."'";
-					$result1 = pg_query($conn,$sql);
-					while($row2 = pg_fetch_row($result1)){
+		<p>Lista de pedidos para juntar:</p>
+		<?php 
+			$sql = "select convidado,nome,nuniversidade from convite,utilizador where projetonome='$nome' and valido='valido' and convite.tipo='convidar' and convidado = \"user\"";
+			$result = pg_query($conn,$sql);
+			while($row = pg_fetch_row($result)){ 
+		?>
+			<p><?php echo($row[1]." - ".$row[2]);?> <a href="#">aceitar</a></p>
+		<?php }?>
+			<a>Lista de grupos: </a>
+		<?php 
+			$sql = "select id,nome,projetoadmin from \"grupo\" where \"projetonome\" = '$nome'";
+			$result = pg_query($conn,$sql);
+			while($row = pg_fetch_row($result)){
+				$adminp =$row[2];
+				$sql = "select nome,nuniversidade from \"utilizador\" where \"user\" = '$adminp'";
+				$row1 = pg_fetch_row(pg_query($conn,$sql));
 				?>
-					<p><?php echo($row2[0]."-".$row2[1]."-".$row2[2]."-".$row2[3]);?></p>
-				
-				<?php }?>
-			
-			</div>
-			<?php
-			
-		}				 
-	?>
-	<form action="criargrupo.php?nome=<?php echo($nome);?>" method="post" name="form1" id="form1">
-	  <label for="nome">Nome do grupo:</label>
-      <input type="text" name="nome" id="nome">
-      <input type="submit" name="submit" id="submit" value="Criar Grupo">
-</form>
+					<div>
+					<p>Nome: <?php echo($row[1]);?></p>
+					<p>id: <?php echo($row[0]);?></p>
+					<p>Administrador: <?php echo($row1[0]."-".$row1[1]);?></p>
+					<p><a href="juntar.php?nome=<?php echo($nome."&id=".$row[0]);?>">Juntar</a></p>
+					<p>Membros: </p>
+					<?php
+						$sql = "select nome,nuniversidade,dataentradagrupo,email from \"uestap\",\"utilizador\" where uestap.utilizadoruser = utilizador.user and \"projetonome\" = '$nome' and \"grupoid\" = '".$row[0]."'";
+						$result1 = pg_query($conn,$sql);
+						while($row2 = pg_fetch_row($result1)){
+					?>
+						<p><?php echo($row2[0]."-".$row2[1]."-".$row2[2]."-".$row2[3]);?></p>
+
+					<?php }?>
+
+				</div>
+				<?php
+
+					}				 
+				?>
+				<form action="criargrupo.php?nome=<?php echo($nome);?>" method="post" name="form1" id="form1">
+				  <label for="nome">Nome do grupo:</label>
+				  <input type="text" name="nome" id="nome">
+				  <input type="submit" name="submit" id="submit" value="Criar Grupo">
+				</form>
 	
 <?php }?>
 </body>
