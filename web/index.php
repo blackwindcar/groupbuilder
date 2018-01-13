@@ -1,6 +1,8 @@
 <!doctype html>
 <?php
 // Start the session
+http_response_code(503);
+exit;
 session_start();
 
 $conn = pg_connect();
