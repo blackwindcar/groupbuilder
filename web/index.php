@@ -1,8 +1,6 @@
 <!doctype html>
 <?php
 // Start the session
-http_response_code(503);
-exit;
 session_start();
 
 $conn = pg_connect();
@@ -16,6 +14,7 @@ if($_SESSION["utilizador"]==null or $_SESSION["password"]==null){
 		
 		pg_close($conn);
 		header("location: login.php");
+		exit;
 		
 	}
 $user = $_SESSION["utilizador"];
@@ -24,6 +23,7 @@ $sql = "select count(*) from \"utilizador\" where \"user\" = '$user' and \"passw
 if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	pg_close($conn);
 	header("location: login.php");
+	exit;
 }
 ?>
 <html>
