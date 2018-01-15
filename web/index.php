@@ -53,44 +53,56 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 	</div>
 </header>
 
-<a href="newProject.php">Novo Projecto</a>
-<a href="associar.php">Associar</a>
-<div>
-	<?php
-	$sql = "SELECT * FROM \"projeto\" where \"admin\" = '$user'";
-	$result = pg_query($conn,$sql);
-	while($row = pg_fetch_row($result)){
-		echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
-	}
-	?>
-</div>
-<div>
-	<?php
-	$sql = "select \"projetonome\" from \"uestap\" where \"utilizadoruser\" = '$user';";
-	$result = pg_query($conn,$sql);
-	while($row = pg_fetch_row($result)){
-		echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
-	}
-	?>
-</div>
-<div>
-	<?php
-	$sql = "select projeto.nome, uestap.grupoid from \"uestap\",\"projeto\" where projeto.nome = uestap.projetonome and uestap.utilizadoruser = '$user'";
-	$result = pg_query($conn,$sql);
-	while($row = pg_fetch_row($result)){?>
-  <div>
-			<h2><?php echo($row[0]) ?></h2>
+<div class="container-fluid">
+	<div class="col-sm-3">
+		<div class="row text-center">
+			<a href="newProject.php" class="btn botao-index-func btn-primary">Novo Projecto</a>
+		</div>
+		<div class="row text-center">
+			<a href="associar.php" class="btn botao-index-func btn-primary">Associar</a>
+		</div>
+		<div>
 			<?php
-			if($row[1]==null){
+			$sql = "SELECT * FROM \"projeto\" where \"admin\" = '$user'";
+			$result = pg_query($conn,$sql);
+			while($row = pg_fetch_row($result)){
+				echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
+			}
 			?>
-	<h3>Sem Grupo</h3>
-	  <a href="project.php?nome=<?php echo($row[0])?>">Associar a um grupo</a>
-	  <?php }?>
+		</div>
+		<div>
+			<?php
+			$sql = "select \"projetonome\" from \"uestap\" where \"utilizadoruser\" = '$user';";
+			$result = pg_query($conn,$sql);
+			while($row = pg_fetch_row($result)){
+				echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
+			}
+			?>
+		</div>
 	</div>
-	<?php
-	}
-	?>
+	<div class="col-sm-9">
+		<div>
+			<?php
+			$sql = "select projeto.nome, uestap.grupoid from \"uestap\",\"projeto\" where projeto.nome = uestap.projetonome and uestap.utilizadoruser = '$user'";
+			$result = pg_query($conn,$sql);
+			while($row = pg_fetch_row($result)){?>
+		  <div>
+					<h2><?php echo($row[0]) ?></h2>
+					<?php
+					if($row[1]==null){
+					?>
+			<h3>Sem Grupo</h3>
+			  <a href="project.php?nome=<?php echo($row[0])?>">Associar a um grupo</a>
+			  <?php }?>
+			</div>
+			<?php
+			}
+			?>
+		</div>
+	</div>
 </div>
-<a href="logout.php">Sair</a>
+
+
+
 </body>
 </html>
