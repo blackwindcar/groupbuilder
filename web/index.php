@@ -70,31 +70,42 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 				while($row = pg_fetch_row($result)){
 					if($teste){
 						$teste = false;?>
-				<div class="panel panel-default text-center">
-					<div class="panel-heading">Adminitrador</div>
-					<div class="panel-body">
+							<div class="panel panel-default text-center">
+								<div class="panel-heading">Adminitrador</div>
+								<div class="panel-body">
 		
-				<?php
-					}
+					<?php
+						}
 					?>
 						<a  class="btn btn-primary botao-index-func" href="project.php?nome=<?php echo($row[0]);?>"><?php echo($row[0]);?></a>
 					<?php
 				}
 				if(!$teste){
-					?></div><?php
+				?></div></div><?php
 				}
 				?>
-			
-		</div>
 		<div>
 			<?php
 			$sql = "select \"projetonome\" from \"uestap\" where \"utilizadoruser\" = '$user';";
 			$result = pg_query($conn,$sql);
+			$teste = true;
 			while($row = pg_fetch_row($result)){
+				if($teste){
+						$teste = false;?>
+							<div class="panel panel-default text-center">
+								<div class="panel-heading">Projetos</div>
+								<div class="panel-body">
+		
+					<?php
+						}
+					
 				echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
 			}
+			if(!$teste){
+				?></div></div><?php
+				}
 			?>
-		</div>
+			<?php ?>d
 	</div>
 	<div class="col-sm-9">
 		<div>
