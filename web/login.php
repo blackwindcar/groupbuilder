@@ -28,7 +28,7 @@ pg_close($conn);
 </head>
 <body>
 <div class="container col-sm-4 col-sm-offset-4 form-margin-top ">
-	<form action="autenticar.php" method="post" name="form1" id="form1" autocomplete="on" class="form-baclgroud-box">
+	<form action="autenticar.php" method="post" name="form1" id="form1" autocomplete="on" class="form-backgroud-box">
 		<div class="form-group">
 		  <label for="user" class="sr-only">user:</label>
 		  <input name="user" type="text" autofocus="autofocus" required="required" class="form-control text-center" id="user" placeholder="Enter user" autocomplete="on">
@@ -38,7 +38,7 @@ pg_close($conn);
 		  <input name="pass" type="password" required="required" id="pass" autocomplete="on" placeholder="Enter password" class="form-control text-center">
 		</div>
 		<div class="row text-center">
-			<input name="submit" type="submit" id="submit" form="form1" value="Login" class="btn btn-primary botao-form" >
+			<input name="submit" type="submit" id="submit" form="form1" value="Login" class="btn botao-form btn-primary" >
 		</div>
 		<div class="row text-center">
 			<a href="registar.php"><input type="button" name="button" id="button" value="Registar"class="btn btn-primary botao-form" ></a>
