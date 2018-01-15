@@ -32,7 +32,7 @@ pg_close($conn);
 		<div class="form-group">
 		  <label for="user" class="sr-only">user:</label>
 		  <input name="user" type="text" autofocus="autofocus" required="required" id="user" autocomplete="on" placeholder="Enter user" class="form-control">
-		</div>s
+		</div>
 		<div class="form-group">
 		  <label for="pass" class="sr-only">password:</label>
 		  <input name="pass" type="password" required="required" id="pass" autocomplete="on" placeholder="Enter password" class="form-control">
