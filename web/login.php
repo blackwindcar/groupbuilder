@@ -28,7 +28,7 @@ pg_close($conn);
 </head>
 <body>
 <div class="container col-sm-4 col-sm-offset-4 form-margin-top ">
-	<form action="autenticar.php" method="post" name="form1" id="form1" autocomplete="on" class="form-backgroud-box">
+	<form action="autenticar.php" method="post" name="form1" id="form1" autocomplete="on" class="form-b-box">
 		<div class="form-group">
 		  <label for="user" class="sr-only">user:</label>
 		  <input name="user" type="text" autofocus="autofocus" required="required" class="form-control text-center" id="user" placeholder="Enter user" autocomplete="on">

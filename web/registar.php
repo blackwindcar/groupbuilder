@@ -23,8 +23,8 @@ if (!$conn) {
 </head>
 
 <body>
-<div class="container col-sm-4 col-sm-offset-4 form-margin-top ">
-	<form action="newUser.php" method="post" name="form1" id="form1" class="form-backgroud-box">
+<div class="container col-sm-4 col-sm-offset-4 form-margin-top-r ">
+	<form action="newUser.php" method="post" name="form1" id="form1" class="form-b-box">
 		<div class="form-group">
 		  <label for="nome" class="sr-only">User:</label>
 		  <input name="user" type="text" autofocus="autofocus" required="required" id="user" autocomplete="on" class="form-control text-center" placeholder="New user">
@@ -51,7 +51,7 @@ if (!$conn) {
 		</div>
 		<div class="form-group">
 		  <label for="tipo" class="sr-only">Tipo*:</label>
-		  <select name="tipo" required="required" id="tipo" form="form1" class="form-control" >
+		  <select name="tipo" required="required" id="tipo" form="form1" class="form-control text-center" >
 			<option>aluno</option>
 			<option>professor</option>
 		  </select>
