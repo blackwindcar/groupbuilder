@@ -26,9 +26,9 @@ pg_close($conn);
 <meta charset="utf-8">
 <title>Login</title>
 </head>
-
+s
 <body>
-<div class="container col-sm-4 col-sm-offset-4">
+<div class="container col-sm-4 col-sm-offset-4 form-margin-top">
 	<form action="autenticar.php" method="post" name="form1" id="form1" autocomplete="on">
 		<div class="form-group">
 		  <label for="user">user:</label>
