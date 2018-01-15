@@ -74,9 +74,8 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 		
 				<?php
 					}
-					echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
 					?>
-						<a  class="row" href="project.php?nome=<?php echo($row[0]);?>"><?php echo($row[0]);?></a>
+						<a  class="btn btn-primary botao-index-func" href="project.php?nome=<?php echo($row[0]);?>"><?php echo($row[0]);?></a>
 					<?php
 				}
 				if(!$teste){
