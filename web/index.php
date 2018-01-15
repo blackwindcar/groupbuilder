@@ -61,14 +61,26 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 		<div class="row text-center">
 			<a href="associar.php" class="btn botao-index-func btn-primary">Associar</a>
 		</div>
-		<div>
-			<?php
-			$sql = "SELECT * FROM \"projeto\" where \"admin\" = '$user'";
-			$result = pg_query($conn,$sql);
-			while($row = pg_fetch_row($result)){
-				echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
-			}
-			?>
+				<?php
+				$sql = "SELECT * FROM \"projeto\" where \"admin\" = '$user'";
+				$result = pg_query($conn,$sql);
+				$teste = true;
+				while($row = pg_fetch_row($result)){
+					if($teste){
+						$teste = false;?>
+				<div class="panel panel-default text-center">
+					<div class="panel-heading">Adminitrador</div>
+					<div class="panel-body">
+		
+				<?php
+					}
+					echo("<a href=\"project.php?nome=".$row[0]."\" >".$row[0]."</a>");
+				}
+				if(!$teste){
+					?></div><?php
+				}
+				?>
+			
 		</div>
 		<div>
 			<?php

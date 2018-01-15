@@ -28,8 +28,12 @@ header{
 	border-radius: 5px;
 }
 .botao-index-func{
-	width: 50%;
+	width: 75%;
 	border-radius: 5px;
 	margin: 5px;
 	min-width: 75px;
+}
+.box-nav-base{
+	background-color:rgba(223,223,223,0.70);
+	border-radius: 5px;
 }
