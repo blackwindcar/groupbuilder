@@ -55,11 +55,13 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 
 <div class="container-fluid">
 	<div class="col-sm-3">
-		<div class="row text-center">
-			<a href="newProject.php" class="btn botao-index-func btn-primary">Novo Projecto</a>
-		</div>
-		<div class="row text-center">
-			<a href="associar.php" class="btn botao-index-func btn-primary">Associar</a>
+		<div class="panel panel-default">
+			<div class="row text-center">
+				<a href="newProject.php" class="btn botao-index-func btn-primary">Novo Projecto</a>
+			</div>
+			<div class="row text-center">
+				<a href="associar.php" class="btn botao-index-func btn-primary">Associar</a>
+			</div>
 		</div>
 				<?php
 				$sql = "SELECT * FROM \"projeto\" where \"admin\" = '$user'";
