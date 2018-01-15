@@ -27,15 +27,15 @@ pg_close($conn);
 <title>Login</title>
 </head>
 <body>
-<div class="container col-sm-4 col-sm-offset-4 form-margin-top">
+<div class="container col-sm-4 col-sm-offset-4 form-margin-top ">
 	<form action="autenticar.php" method="post" name="form1" id="form1" autocomplete="on" class="form-baclgroud-box">
 		<div class="form-group">
 		  <label for="user" class="sr-only">user:</label>
-		  <input name="user" type="text" autofocus="autofocus" required="required" id="user" autocomplete="on" placeholder="Enter user" class="form-control">
+		  <input name="user" type="text" autofocus="autofocus" required="required" class="form-control text-center" id="user" placeholder="Enter user" autocomplete="on">
 		</div>
 		<div class="form-group">
 		  <label for="pass" class="sr-only">password:</label>
-		  <input name="pass" type="password" required="required" id="pass" autocomplete="on" placeholder="Enter password" class="form-control">
+		  <input name="pass" type="password" required="required" id="pass" autocomplete="on" placeholder="Enter password" class="form-control text-center">
 		</div>
 		<div class="row text-center">
 			<input name="submit" type="submit" id="submit" form="form1" value="Login" class="btn btn-primary botao-form" >
