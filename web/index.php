@@ -28,12 +28,30 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 ?>
 <html>
 <head>
+	<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/myStyle.css">
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 <meta charset="utf-8">
 <title>Home</title>
 </head>
 
 <body>
-<a href="conta.php"><?php echo($user); ?></a>
+<header>
+	<div class="container-fluid">
+		<div class="col-sm-8 text-center">
+			<h1>GroupBuilder</h1>
+		</div>
+		<div class="col-sm-4 text-right">
+			<h3>
+				<a href="conta.php"><?php echo($user); ?></a>
+			</h3>
+		</div>
+	</div>
+</header>
+
 <a href="newProject.php">Novo Projecto</a>
 <a href="associar.php">Associar</a>
 <div>

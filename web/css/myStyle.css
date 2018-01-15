@@ -1,5 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
+
+header{
+	background-color:rgba(120,120,120,1.00);
+}
 .bg-form-base{
 	background-color:#CDCDCD;
 	border-radius: 10px;
