@@ -46,7 +46,7 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 		</div>
 		<div class="col-sm-4 text-right">
 			<h3>
-				<a href="conta.php"><?php echo($user); ?></a>
+				<a href="conta.php" class="btn botao-form btn-primary"><?php echo($user); ?></a>
 			</h3>
 		</div>
 	</div>
