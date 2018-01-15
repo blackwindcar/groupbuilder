@@ -13,23 +13,38 @@ if (!$conn) {
 }
 
 pg_close($conn);
-header("location: 503.html");
-exit;
 ?>
 <html>
 <head>
+	
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/myStyle.css">
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 <meta charset="utf-8">
 <title>Login</title>
 </head>
 
 <body>
-<form action="autenticar.php" method="post" name="form1" id="form1" autocomplete="on">
-  <label for="user">user:</label>
-  <input name="user" type="text" autofocus="autofocus" required="required" id="user" autocomplete="on">
-  <label for="pass">password:</label>
-  <input name="pass" type="password" required="required" id="pass" autocomplete="on">
-  <input name="submit" type="submit" id="submit" form="form1" value="Login">
-	<a href="registar.php"><input type="button" name="button" id="button" value="Registar"></a>
-</form>
+<div class="container col-sm-4 col-sm-offset-4">
+	<form action="autenticar.php" method="post" name="form1" id="form1" autocomplete="on">
+		<div class="form-group">
+		  <label for="user">user:</label>
+		  <input name="user" type="text" autofocus="autofocus" required="required" id="user" autocomplete="on" placeholder="Enter user" class="form-control">
+		</div>
+		<div class="form-group">
+		  <label for="pass">password:</label>
+		  <input name="pass" type="password" required="required" id="pass" autocomplete="on" placeholder="Enter password" class="form-control">
+		</div>
+		<div class="row text-center">
+			<input name="submit" type="submit" id="submit" form="form1" value="Login" class="btn btn-primary botao-form" >
+		</div>
+		<div class="row text-center">
+			<a href="registar.php"><input type="button" name="button" id="button" value="Registar"class="btn btn-primary botao-form" ></a>
+		</div>
+	</form>
+</div>
 </body>
 </html>

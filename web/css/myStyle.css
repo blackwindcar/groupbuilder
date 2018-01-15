@@ -1,9 +1,14 @@
 @charset "utf-8";
 /* CSS Document */
-
 .bg-form-base{
 	background-color:#CDCDCD;
 	border-radius: 10px;
 	color: #FFFFFF;
+}
+
+.botao-form{
+	width: 30%;
+	border-radius: 5px;
+	margin: 5px;
 }
 
