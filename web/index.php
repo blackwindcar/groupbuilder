@@ -114,15 +114,19 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 			$sql = "select projeto.nome, uestap.grupoid from \"uestap\",\"projeto\" where projeto.nome = uestap.projetonome and uestap.utilizadoruser = '$user'";
 			$result = pg_query($conn,$sql);
 			while($row = pg_fetch_row($result)){?>
-		  <div>
+		  		<div class="panel panel-default text-center">
+					<div class="panel-heading">
 					<h2><?php echo($row[0]) ?></h2>
+					</div>
+					<div class="panel-body">
 					<?php
 					if($row[1]==null){
 					?>
-			<h3>Sem Grupo</h3>
-			  <a href="project.php?nome=<?php echo($row[0])?>">Associar a um grupo</a>
+					<h3>Sem Grupo</h3>
+			  		<a href="project.php?nome=<?php echo($row[0])?>">Associar a um grupo</a>
+					</div>
 			  <?php }?>
-			</div>
+				</div>
 			<?php
 			}
 			?>
