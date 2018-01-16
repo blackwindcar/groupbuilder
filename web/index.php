@@ -125,8 +125,9 @@ if(pg_fetch_row(pg_query($conn,$sql))[0]=="0"){
 					<h3>Sem Grupo</h3>
 			  		<a href="project.php?nome=<?php echo($row[0])?>">Associar a um grupo</a>
 					</div>
-			  <?php }?>
 				</div>
+			  <?php }?>
+				
 			<?php
 			}
 			?>
